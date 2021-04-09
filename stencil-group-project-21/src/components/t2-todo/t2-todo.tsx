@@ -14,10 +14,10 @@ export class T2Todo {
           <h1>Meine To-Do's</h1><button type="button" class="button-hinzu">+ Kategorie hinzufügen</button>
           <div class="platzhalter">leer</div>
           <div class="backgroundcolor-todo">
-            <div class="box-studium">Studium</div>
-            <div class="box-arbeit">Arbeit</div>
-            <div class="box-privat">Privat</div>
-            <div class="box-notizen">Notizen</div>
+            <div id="kategorie" class="box-studium">Studium</div>
+            <div id="kategorie" class="box-arbeit">Arbeit</div>
+            <div id="kategorie" class="box-privat">Privat</div>
+            <div id="kategorie" class="box-notizen">Notizen</div>
             <div class="kreis">A</div>
             <div class="pfeil-footer">ᐱ</div>
           </div>

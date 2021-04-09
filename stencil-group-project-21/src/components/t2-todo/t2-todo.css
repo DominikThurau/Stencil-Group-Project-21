@@ -41,13 +41,11 @@ h1 {
   position: relative;
 }
 
-.box-studium {
-  background-color: #ADBED2;
-  color: white;
+#kategorie {
   text-align: left;
+  color: white;
   width: 342px;
   height: 286px;
-  margin-top: 30px;
   padding-left: 20px;
   padding-top: 20px;
   border-radius: 20px;
@@ -59,69 +57,26 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
+}
+
+.box-studium {
+  background-color: #ADBED2;
+  margin-top: 30px;
 }
 
 .box-arbeit {
   background-color: #FFB471;
-  color: white;
-  text-align: left;
-  width: 342px;
-  height: 286px;
-  margin: 0 auto;
   margin-top: 100px;
-  padding-left: 20px;
-  padding-top: 20px;
-  border-radius: 20px;
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
 }
 
 .box-privat {
   background-color: #EB8F90;
-  color: white;
-  text-align: left;
-  width: 342px;
-  height: 286px;
-  margin: 0 auto;
   margin-top: 200px;
-  padding-left: 20px;
-  padding-top: 20px;
-  border-radius: 20px;
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
 }
 
 .box-notizen {
   background-color: #12406A;
-  color: white;
-  text-align: left;
-  width: 342px;
-  height: 286px;
-  margin: 0 auto;
   margin-top: 300px;
-  padding-left: 20px;
-  padding-top: 20px;
-  border-radius: 20px;
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
 } 
 
 .kreis {
