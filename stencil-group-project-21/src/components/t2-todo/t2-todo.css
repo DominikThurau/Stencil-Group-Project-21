@@ -1,3 +1,155 @@
 :host {
   display: block;
+  width: 375px;
+  height: 812px;
+}
+
+h1 {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  display: inline;
+}
+
+.button-hinzu {
+  display: inline;
+  padding-top: 10px;
+  float: right;
+  background-color: white;
+  color: #eb8f90;
+  border: none;
+  text-decoration: underline;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.platzhalter {
+  color: white;
+  padding-bottom: 10px;
+}
+
+.backgroundcolor-todo {
+  background-color: #e5edf8;
+  width: 100%;
+  height: 742px;
+  margin: -8px -8px -8px -8px;
+  padding-top: 1%;
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.box-studium {
+  background-color: #ADBED2;
+  color: white;
+  text-align: left;
+  width: 342px;
+  height: 286px;
+  margin-top: 30px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border-radius: 20px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.box-arbeit {
+  background-color: #FFB471;
+  color: white;
+  text-align: left;
+  width: 342px;
+  height: 286px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border-radius: 20px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.box-privat {
+  background-color: #EB8F90;
+  color: white;
+  text-align: left;
+  width: 342px;
+  height: 286px;
+  margin: 0 auto;
+  margin-top: 200px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border-radius: 20px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.box-notizen {
+  background-color: #12406A;
+  color: white;
+  text-align: left;
+  width: 342px;
+  height: 286px;
+  margin: 0 auto;
+  margin-top: 300px;
+  padding-left: 20px;
+  padding-top: 20px;
+  border-radius: 20px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+} 
+
+.kreis {
+  background-color: #FFB471;
+  color: #FFB471;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 655px;
+}
+
+.pfeil-footer {
+  text-align: center;
+  margin-top: 647px;
+  font-size: 50px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  color: #e5edf8;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
