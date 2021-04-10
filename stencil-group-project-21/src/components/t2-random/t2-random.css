@@ -1,3 +1,124 @@
 :host {
   display: block;
+  width: 375px;
+  height: 812px;
+}
+
+h1 {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  display: inline;
+}
+h2{
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.textfeld-namen{
+  width: 330px;
+  height: 135px;
+  border-radius: 20px;
+  margin-left: 17px;
+}
+
+.platzhalter {
+  color: white;
+  padding-bottom: 10px;
+}
+
+.backgroundcolor-random {
+  background-color: #e5edf8;
+  width: 100%;
+  height: 742px;
+  margin: -8px -8px -8px -8px;
+  padding-top: 1%;
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.trennzeichen{
+  font-family: hero-new, sans-serif;
+  font-size: 15px;
+  font-weight: 100;
+  text-align: center;
+  padding-right: 7px;
+}
+
+#auswahl{
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  padding-left: 20px;
+  height: 80px;
+  width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.anzahl-gruppen{
+  background-color: #adbed2;
+  border-radius: 20px;  
+}
+
+.anzahl-personen{
+  background-color: #FFB471;
+  border-radius: 20px; 
+  margin-top: 10px;
+}
+
+.zufallsbutton{
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  height: 50px;
+  width: 250px;
+  margin-left: 55px;
+  background-color: #eb8f90;
+  color: white;
+  margin-top: 40px;
+  border-radius: 20px;
+  border-color: #707070;
+}
+
+.kreis {
+  background-color: #FFB471;
+  color: #FFB471;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 60px;
+}
+
+.pfeil-footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 50px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  color: #e5edf8;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.textfeld-anzahl{
+  width: 30px;
+  height: 15px;
+  margin-top: 25px;
 }
