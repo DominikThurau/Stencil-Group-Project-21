@@ -6,9 +6,9 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class T2Start {
-  getWeather(cityID) {
+  Weather(cityID) {
     const apiKey: string = '501ed5e2d77d2c5c368e797804806020';
-    fetch('api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey).then(response => console.log(response));
+    fetch('api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey);
   }
 
   /*
@@ -31,16 +31,16 @@ export class T2Start {
     return (
       <Host>
         <slot>
-          <div>
-            <div>
+          <div class="container">
+            <div class="wrapper">
               <p id="time">{this.Time()}</p>
               <hr></hr>
               <p id="date">{this.Date()}</p>
               <p id="worldDay">internationaler Tag des Fülltextes</p>
               <img id="weatherIcon"></img>
-              <p id="weather">80 °C</p>
+              <p id="weather">{this.Weather}</p>
             </div>
-            <img id="scrollButton"></img>
+            <div class="kreis button"></div>
           </div>
         </slot>
       </Host>
