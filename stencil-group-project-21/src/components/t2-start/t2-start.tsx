@@ -50,7 +50,7 @@ export class T2Start {
               <p id="date">{this.Date()}</p>
               <p id="worldDay">internationaler Tag des Fülltextes</p>
               <img id="weatherIcon"></img>
-              <p id="weather">{this.Weather}</p>
+              <p id="weather">{this.Weather(2869117)}</p>
             </div>
             <div class="kreis button"></div>
           </div>
