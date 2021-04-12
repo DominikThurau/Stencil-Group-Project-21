@@ -2,7 +2,10 @@ import { Component, Host, h, Listen } from '@stencil/core';
 
 @Component({
   tag: 't2-canvas',
-  styleUrl: 't2-canvas.css',
+  styleUrls: [
+    't2-canvas.css',
+    '../../assets/fontawesome/css/all.css'
+],
   shadow: true,
   
 })
@@ -18,6 +21,8 @@ export class T2Canvas {
   
   constructor() {
     //Fuck this
+    this.setPencil = this.setPencil.bind(this);
+    this.setEraser = this.setEraser.bind(this);
     this.startPainting = this.startPainting.bind(this);
     this.changeBrushSize = this.changeBrushSize.bind(this);
     this.changeColor = this.changeColor.bind(this);
@@ -29,6 +34,13 @@ export class T2Canvas {
     this.brushSize = 2;
   }
   
+  setPencil(){
+    this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+  }
+
+  setEraser(){
+    this.context.strokeStyle = "white";
+  }
   changeBrushSize(){
     console.log(this.brushSize);
     if(this.brushSize<8){
@@ -132,13 +144,14 @@ export class T2Canvas {
         <slot></slot>
         <div id="canvas-wrapper">
           <h2>Canvas</h2>
+          <i class="fas fa-camera"></i>
           <canvas id="canvas" width="300" height="500" class="shadow" ref={(el) => this.canvas = el as HTMLCanvasElement}></canvas>
           <div class="button-bar">
-            <div class="icon-button shadow" onClick={this.changeColor}><p>C</p></div>
-            <div class="icon-button shadow" onClick={this.changeBrushSize}><p>W</p></div>
-            <div class="icon-button shadow"><p></p></div>
-            <div class="icon-button shadow"><p></p></div>
-            <div class="icon-button shadow" onClick={this.clearCanvas}><p>X</p></div>
+            <div class="icon-button shadow" onClick={this.setPencil}><div class="icon-class"><slot name='brush'/></div></div>
+            <div class="icon-button shadow" onClick={this.setEraser}><div class="icon-class"><slot name='eraser'/></div></div>
+            <div class="icon-button shadow" onClick={this.changeColor}><div class="icon-class"><slot name='color'/></div></div>
+            <div class="icon-button shadow" onClick={this.changeBrushSize}><div class="icon-class"><slot name='size'/></div></div>
+            <div class="icon-button shadow" onClick={this.clearCanvas}><div class="icon-class"><slot name='clear'/></div></div>
           </div>
         </div>
         
