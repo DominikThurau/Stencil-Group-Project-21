@@ -49,7 +49,14 @@ export class T2Canvas {
         <slot></slot>
         <div id="canvas-wrapper">
           <h2>Canvas</h2>
-          <canvas width="350" height="500" ref={(el) => this.canvas = el as HTMLCanvasElement}></canvas>
+          <canvas id="canvas" width="300" height="500" class="shadow" ref={(el) => this.canvas = el as HTMLCanvasElement}></canvas>
+          <div class="button-bar">
+            <div class="icon-button shadow"><p></p></div>
+            <div class="icon-button shadow"><p></p></div>
+            <div class="icon-button shadow"><p></p></div>
+            <div class="icon-button shadow"><p></p></div>
+            <div class="icon-button shadow"><p></p></div>
+          </div>
         </div>
         
       </Host>
