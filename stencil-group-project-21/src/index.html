@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
+    <link rel="stylesheet" type="text/css" href="./assets/fontawesome/css/all.css">
     <link rel="stylesheet" href="https://use.typekit.net/wvj3mvt.css">
 
     <script type="module" src="/build/stencil-group-project-21.esm.js"></script>
@@ -12,9 +13,16 @@
   <body>
     <h1>ON20-Manager</h1>
     <t2-start></t2-start>
+    
     <t2-calendar></t2-calendar>
     <t2-todo></t2-todo>
-    <t2-canvas></t2-canvas>
+    <t2-canvas>
+      <i class="fas fa-broom fa-lg" slot="brush"></i>
+      <i class="fas fa-eraser fa-lg" slot="eraser"></i>
+      <i class="fas fa-palette fa-lg" slot="color"></i>
+      <i class="fas fa-arrows-alt-h fa-lg" slot="size"></i>
+      <i class="fas fa-trash fa-lg" slot="clear"></i>
+    </t2-canvas>
     <t2-random></t2-random>
     <t2-footer></t2-footer>
   </body>
