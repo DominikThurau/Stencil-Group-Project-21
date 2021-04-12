@@ -6,6 +6,8 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class T2Start {
+  content: WorldDay[];
+
   Weather(cityID) {
     const apiKey: string = '501ed5e2d77d2c5c368e797804806020';
     fetch('api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey);
@@ -27,6 +29,16 @@ export class T2Start {
     return today;
   }
 
+  Day() {
+    let day = new Date();
+    return day.getDay;
+  }
+
+  Month() {
+    let month = new Date();
+    return month.getMonth;
+  }
+
   render() {
     return (
       <Host>
@@ -46,6 +58,12 @@ export class T2Start {
       </Host>
     );
   }
+}
+
+class WorldDay {
+  day: number;
+  month: number;
+  title: string;
 }
 
 /*
