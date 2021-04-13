@@ -30,13 +30,22 @@ export class T2Start {
   }
 
   Day() {
-    let day = new Date();
-    return day.getDay;
+    const day = new Date();
+    const todaysday = day.getDay;
+    return todaysday;
   }
 
   Month() {
     let month = new Date();
     return month.getMonth;
+  }
+
+  WorldDay() {
+    let todaystitle = this.content.filter(function (content) {
+      content.day == this.Day && content.month == this.Month;
+      return content.title;
+    });
+    return todaystitle;
   }
 
   render() {
@@ -48,7 +57,7 @@ export class T2Start {
               <p id="time">{this.Time()}</p>
               <hr></hr>
               <p id="date">{this.Date()}</p>
-              <p id="worldDay">internationaler Tag des Fülltextes</p>
+              <p id="worldDay">{this.WorldDay}</p>
               <img id="weatherIcon"></img>
               <p id="weather">{this.Weather(2869117)}</p>
             </div>
