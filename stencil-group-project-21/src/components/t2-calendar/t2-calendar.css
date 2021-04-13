@@ -1,3 +1,24 @@
 :host {
   display: block;
+  width: 375px;
+  height: 812px;
+  background-color: white;
+}
+
+h1 {
+  font-family: hero-new,sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#calender-background {
+  background-color: #e5edf8;
+  width: 100%;
+  height: 742px;
+  margin: -8px -8px -8px -8px;
+  padding-top: 1%;
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
 }
