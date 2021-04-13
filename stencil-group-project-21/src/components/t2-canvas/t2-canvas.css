@@ -31,10 +31,12 @@
   text-align: center;
 }
 
-.icon-button:hover{
-  /* margin-top: -15px;
-  height: 70px; */
-  background-color: palegoldenrod;
+.icon-button:hover
+{
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+        box-shadow: none;
 }
 
 .shadow{
@@ -51,5 +53,14 @@
 }
 
 .icon-class{
-  padding-top: 12px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+.center{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
