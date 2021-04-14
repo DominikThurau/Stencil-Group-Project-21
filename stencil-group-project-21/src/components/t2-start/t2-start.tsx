@@ -8,7 +8,19 @@ import { Component, Host, h } from '@stencil/core';
 export class T2Start {
   content: WorldDay[];
 
-  Weather(cityID) {
+  componentWillRender() {
+    return fetch('/assets/world-days.json')
+      .then(response => response.json())
+      .then((data: WorldDay[]) => (this.content = data));
+  }
+
+  async getWeather() {
+    const apiKey: string = '501ed5e2d77d2c5c368e797804806020';
+    const cityID = 2869117;
+    const apiUrl = 'api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey;
+  }
+
+  weather(cityID) {
     const apiKey: string = '501ed5e2d77d2c5c368e797804806020';
     fetch('api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey);
   }
@@ -29,23 +41,24 @@ export class T2Start {
     return today;
   }
 
-  Day() {
-    const day = new Date();
-    const todaysday = day.getDay;
-    return todaysday;
+  day(): number {
+    let day = new Date();
+    return day.getDate();
   }
 
-  Month() {
+  month() {
     let month = new Date();
-    return month.getMonth;
+    return month.getMonth() + 1;
   }
 
-  WorldDay() {
-    let todaystitle = this.content.filter(function (content) {
-      content.day == this.Day && content.month == this.Month;
-      return content.title;
-    });
-    return todaystitle;
+  worldDay() {
+    console.log(this.day() + '; ' + this.month() + '; ' + JSON.stringify(this.content));
+    let result = this.content.filter(welttag => welttag.day == this.day() && welttag.month == this.month());
+    if (result[0]) {
+      return result[0].title;
+    } else {
+      return '';
+    }
   }
 
   render() {
@@ -57,9 +70,9 @@ export class T2Start {
               <p id="time">{this.Time()}</p>
               <hr></hr>
               <p id="date">{this.Date()}</p>
-              <p id="worldDay">{this.WorldDay}</p>
+              <p id="worldDay">{this.worldDay()}</p>
               <img id="weatherIcon"></img>
-              <p id="weather">{this.Weather(2869117)}</p>
+              <p id="weather">{this.weather(2869117)}</p>
             </div>
             <div class="kreis button"></div>
           </div>
@@ -68,7 +81,6 @@ export class T2Start {
     );
   }
 }
-
 class WorldDay {
   day: number;
   month: number;
