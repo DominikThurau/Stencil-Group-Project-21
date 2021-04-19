@@ -6,6 +6,18 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class T2Todo {
+  nameInput:HTMLTextAreaElement;
+  nameList;
+  groupBuilder: HTMLInputElement;
+  personBuilder: HTMLInputElement;
+
+  groupCount: HTMLInputElement;
+  personCount: HTMLInputElement;
+
+  constructor(){
+    this.buildGroups = this.buildGroups.bind(this);
+    this.groupBuilderFunction = this.groupBuilderFunction.bind(this);
+  }
 
   render() {
     return (
