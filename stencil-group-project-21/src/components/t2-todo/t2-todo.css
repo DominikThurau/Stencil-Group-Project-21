@@ -80,12 +80,12 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .pfeil-footer {
   text-align: center;
-  margin-top: 22px;
+  margin-top: 12px;
   font-size: 50px;
   font-family: hero-new, sans-serif;
   font-weight: 400;
@@ -117,5 +117,15 @@ h1 {
 }
 
 .button-hinzu {
-  border-radius: 10px;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  height: 30px;
+  width: 100px;
+  margin-left: 140px;
+  background-color: #eb8f90;
+  color: white;
+  margin-top: 5px;
+  border-radius: 20px;
+  border-color: #707070;
 }
