@@ -31,7 +31,7 @@ export class T2Canvas {
   }
 
   saveCanvas() {
-    console.log("saved");
+    //console.log("saved");
     localStorage.setItem("canvas", this.canvas.toDataURL());
   }
 
@@ -42,7 +42,7 @@ export class T2Canvas {
     this.setEraser = this.setEraser.bind(this);
     let that = this;
     img.onload = function () {
-      console.log(that);
+      //console.log(that);
       that.context.drawImage(img, 0, 0);
     }
   }
@@ -94,13 +94,13 @@ export class T2Canvas {
     let rect = this.canvas.getBoundingClientRect();
     this.coord.x = event.clientX - rect.left;
     this.coord.y = event.clientY - rect.top;
-    console.log(this.coord);
+    //console.log(this.coord);
     //console.log("Coordinate x: " + x, "Coordinate y: " + y);
   }
 
   @Listen('mousedown')
   startPainting(event) {
-    console.log(this.pencilColors[0]);
+    //console.log(this.pencilColors[0]);
     this.paint = true;
     this.getMousePos(event);
   }
@@ -114,7 +114,7 @@ export class T2Canvas {
   @Listen('mousemove')
   sketch(event) {
     if (!this.paint) return;
-    console.log('Move');
+    //console.log('Move');
     this.context.beginPath();
 
     // Sets the end of the lines drawn
