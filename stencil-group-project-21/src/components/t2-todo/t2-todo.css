@@ -50,6 +50,12 @@ h1 {
   background-color: #ADBED2;
   margin-top: 30px;
 }
+.look:hover
+{
+        -webkit-transform: translate(0, -100px);
+        -ms-transform: translate(0, -100px);
+        transform: translate(0, -100px);
+}
 
 .box-arbeit {
   background-color: #FFB471;
