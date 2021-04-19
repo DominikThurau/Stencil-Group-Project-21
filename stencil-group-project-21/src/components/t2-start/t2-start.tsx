@@ -30,13 +30,6 @@ export class T2Start {
     return fetch(apiUrl)
       .then(response => response.json())
       .then(data => (this.weatherData = data));
-
-    /*const response = await fetch(apiUrl);
-    const data = await response.json();
-    const { name, weather, main } = data;
-    console.log(name);
-    
-    console.log(main.temp);*/
   }
 
   tempInC() {
@@ -86,17 +79,40 @@ export class T2Start {
     }
   }
 
+  changeBackground() {
+    this.weatherData.weather[0].icon;
+    const thunderstorm = 'Thunderstorm';
+    const drizzle = 'Drizzle';
+    const rain = 'Rain';
+    const snow = 'Snow';
+    const clear = 'Clear';
+    const clouds = 'Clouds';
+    if (this.weatherData.weather[0].main == thunderstorm) {
+      return <img src="assets/img/thunderstorm.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == drizzle || this.weatherData.weather[0].main == rain) {
+      return <img src="assets/img/raindrops.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == snow) {
+      return <img src="assets/img/snow.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == clouds) {
+      return <img src="assets/img/clouds.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == clear) {
+      return <img src="assets/img/clear.jpg" id="weatherBackground"></img>;
+    } else {
+      return <img src="assets/img/wind.jpg" id="weatherBackground"></img>;
+    }
+  }
+
   render() {
     return (
       <Host>
         <slot>
+          {this.changeBackground()}
           <div class="container">
             <div class="wrapper">
               <p id="time">{this.time()}</p>
               <hr></hr>
               <p id="date">{this.date()}</p>
               {this.worldDay()}
-              <img id="weatherIcon"></img>
               <p id="weather">
                 {this.weatherIcon()}
                 {this.tempInC()}

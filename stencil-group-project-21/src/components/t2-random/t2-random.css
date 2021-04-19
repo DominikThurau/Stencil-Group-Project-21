@@ -11,6 +11,7 @@ h1 {
   text-transform: uppercase;
   display: inline;
 }
+
 h2{
   font-family: hero-new, sans-serif;
   font-weight: 400;
@@ -119,7 +120,7 @@ h2{
 }
 
 .textfeld-anzahl{
-  width: 30px;
+  width: 40px;
   height: 15px;
   margin-top: 25px;
 }

@@ -1,7 +1,7 @@
 :host {
   display: block;
   font-family: hero-new, sans-serif;
-  background-color: aliceblue;
+  background-color: #e5edf8;
   color: white;
   width: 375px;
   height: 812px;
@@ -17,6 +17,15 @@ hr {
 
 .container {
   padding-top: 5rem;
+  position: relative;
+}
+
+#weatherBackground {
+  position: absolute;
+  width: 375px;
+  height: 812px;
+  opacity: 0.4;
+  object-fit: cover;
 }
 
 .wrapper {
