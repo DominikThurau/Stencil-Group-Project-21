@@ -90,14 +90,13 @@ export class T2Random {
                 <div id="auswahl" class="anzahl-gruppen">
                   <input type="radio" name="modi" checked
                   ref={el => (this.groupBuilder = el as HTMLInputElement)}/>
-                  Bilde <input type="number" class="textfeld-anzahl" maxlength="3" min="2" max="999" step="1" value="3" 
+                  Bilde <input type="number" class="textfeld-anzahl" min="2" max="999" step="1" value="3" 
                   ref={el => (this.groupCount = el as HTMLInputElement)}/> 
                   Gruppen</div>
-
                   <div id="auswahl" class="anzahl-personen">
                   <input type="radio" name="modi" 
                   ref={el => (this.personBuilder = el as HTMLInputElement)}/>
-                  Bilde Gruppen mit je <input type="number" class="textfeld-anzahl" maxlength="3" min="2" max="999" step="1" value="4"
+                  Bilde Gruppen mit je <input type="number" class="textfeld-anzahl" min="2" max="999" step="1" value="4"
                   ref={el => (this.groupCount = el as HTMLInputElement)}/> 
                   Personen</div>      
               </div>
