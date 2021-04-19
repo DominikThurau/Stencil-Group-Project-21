@@ -16,7 +16,7 @@ export class T2Random {
           <div class="backgroundcolor-random">
             <h2>Alle Namen:</h2>
               <div>
-                <input type="text" placeholder="Laura, Linda, Dominik, Tobi, Tabea, Jonas"  class="textfeld-namen"/>
+                <textarea class="textfeld-namen" placeholder="Laura, Linda, Dominik, Tobi, Tabea, Jonas"></textarea>
                 <br></br>
                 <h2>Namen werden getrennt durch:</h2>
                 <div class="trennzeichen">
