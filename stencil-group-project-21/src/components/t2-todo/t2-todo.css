@@ -12,19 +12,6 @@ h1 {
   display: inline;
 }
 
-.button-hinzu {
-  display: inline;
-  padding-top: 10px;
-  float: right;
-  background-color: white;
-  color: #eb8f90;
-  border: none;
-  text-decoration: underline;
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  font-size: 10px;
-}
-
 .platzhalter {
   color: white;
   padding-bottom: 10px;
@@ -63,6 +50,12 @@ h1 {
   background-color: #ADBED2;
   margin-top: 30px;
 }
+.look:hover
+{
+        -webkit-transform: translate(0, -100px);
+        -ms-transform: translate(0, -100px);
+        transform: translate(0, -100px);
+}
 
 .box-arbeit {
   background-color: #FFB471;
@@ -72,11 +65,13 @@ h1 {
 .box-privat {
   background-color: #EB8F90;
   margin-top: 200px;
+  height: 150px !important;
 }
 
 .box-notizen {
   background-color: #12406A;
   margin-top: 300px;
+  height: 150px !important;
 } 
 
 .kreis {
@@ -91,12 +86,12 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
-  margin-top: 655px;
+  margin-top: 20px;
 }
 
 .pfeil-footer {
   text-align: center;
-  margin-top: 647px;
+  margin-top: 12px;
   font-size: 50px;
   font-family: hero-new, sans-serif;
   font-weight: 400;
@@ -107,4 +102,36 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
+}
+
+.kategorien-auswahl{
+  font-family: hero-new, sans-serif;
+  font-size: 15px;
+  font-weight: 100;
+  text-align: center;
+  padding-right: 7px;
+  padding-top: 10px;
+}
+
+.hinzufuegen {
+  margin-top: 480px;
+  margin-left: 10px;
+  width: 342px;
+  height: 100px;
+  border-radius: 10px;
+  resize: none;
+}
+
+.button-hinzu {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  height: 30px;
+  width: 100px;
+  margin-left: 140px;
+  background-color: #eb8f90;
+  color: white;
+  margin-top: 5px;
+  border-radius: 20px;
+  border-color: #707070;
 }

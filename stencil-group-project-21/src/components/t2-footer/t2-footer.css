@@ -92,21 +92,74 @@ h1 {
   margin-top: 500px;
   width: 100%;
 }
-
 .content-footer{
+  position: absolute;
+  bottom: 10px;
+}
+
+.icon-bar{
   display: flex;
+  position: relative;
 }
 .icon-download{
-  padding-top: 140px;
-  padding-left: 290px;
+  padding-left: 160px;
   background-color: none;
   color: white ;
   font-size: 25px;
 }
+.icon-download:hover{
+  color:rgb(126, 207, 245)
+}
 .icon-upload{
-  padding-top: 140px;
   padding-left: 10px;
   background-color: none;
   color: white ;
   font-size: 25px;
+}
+.icon-upload:hover{
+  color:rgb(126, 207, 245)
+}
+.icon-instagram{
+  padding-left: 13px;
+  background-color: none;
+  color: white ;
+  font-size: 25px;
+}
+.icon-instagram:hover{
+  color:#e434be;
+}
+.icon-github{
+  padding-left: 10px;
+  background-color: none;
+  color: white ;
+  font-size: 25px;
+}
+.icon-github:hover{
+  color:#b200e9;
+}
+.icon-moodle{
+  padding-left: 10px;
+  background-color: none;
+  color: white ;
+  font-size: 25px;
+}
+.icon-moodle:hover{
+  color:#ff0000;
+}
+.icon-calendar{
+  padding-left: 10px;
+  background-color: none;
+  color: white ;
+  font-size: 25px;
+}
+.icon-calendar:hover{
+  color:#ff0000;
+}
+
+.line
+{
+  border-top-color:#bbb;
+  width: 97%;
+  padding-top: 2px;
+  margin-left: 11px;
 }
