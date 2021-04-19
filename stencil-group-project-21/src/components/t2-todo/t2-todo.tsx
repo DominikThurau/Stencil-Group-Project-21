@@ -28,7 +28,8 @@ export class T2Todo {
                   <label>Privat</label>
                   <input type="radio" name="notizen"/>
                   <label>Notizen</label>
-                </div>
+              </div>
+              <button type="button" class="button-hinzu">Hinzufügen</button>
             <div class="kreis">A</div>
             <div class="pfeil-footer">ᐱ</div>
           </div>
