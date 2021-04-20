@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Listen, State } from '@stencil/core';
 
 @Component({
   tag: 't2-start',
@@ -8,6 +8,7 @@ import { Component, Host, h } from '@stencil/core';
 export class T2Start {
   content: WorldDay[];
   weatherData: any;
+  @State() pageYOffset = 0;
 
   componentWillRender() {
     return Promise.all([this.fetchWorldDays(), this.getWeather()]);
@@ -73,7 +74,7 @@ export class T2Start {
     //console.log(this.day() + '; ' + this.month() + '; ' + JSON.stringify(this.content));
     let result = this.content.filter(welttag => welttag.day == this.day() && welttag.month == this.month());
     if (result[0]) {
-      return <p>{result[0].title}</p>;
+      return <p id="worldDay">{result[0].title}</p>;
     } else {
       return '';
     }
@@ -102,25 +103,73 @@ export class T2Start {
     }
   }
 
-  render() {
-    return (
-      <Host>
-        <slot>
+  @Listen('scroll', { target: 'window' })
+  handleScroll(ev) {
+    console.log('the body was scrolled', ev);
+    this.pageYOffset = ev.currentTarget.pageYOffset;
+  }
+
+  showEverything() {
+    if (this.pageYOffset == 0) {
+      return (
+        <div class="parentDiv">
           {this.changeBackground()}
           <div class="container">
             <div class="wrapper">
               <p id="time">{this.time()}</p>
-              <hr></hr>
+              <hr id="seperator"></hr>
               <p id="date">{this.date()}</p>
               {this.worldDay()}
-              <p id="weather">
-                {this.weatherIcon()}
-                {this.tempInC()}
-              </p>
+              {this.displayWeather()}
             </div>
-            <div class="kreis button"></div>
           </div>
-        </slot>
+          <div class="scrollKreis">
+            <div class="dreieck"></div>
+          </div>
+        </div>
+      );
+    } else if (this.pageYOffset > 0) {
+      return (
+        <div class="wrapper" style={{ width: 'inherit', paddingLeft: '2rem' }}>
+          <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '1.5rem' }}>
+            {this.date()}
+          </p>
+          <p id="weatherIcon" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+            {this.weatherIcon()}
+          </p>
+        </div>
+      );
+    }
+  }
+
+  displayWeather() {
+    if (this.pageYOffset < 200) {
+      return (
+        <div id="weatherInfo">
+          <p id="weatherIcon">{this.weatherIcon()}</p>
+          <div id="weatherText">
+            <p id="location">Mosbach:</p>
+            <p id="temperature">{this.tempInC()}</p>
+          </div>
+        </div>
+      );
+    } else {
+      return <p id="weatherIcon">{this.weatherIcon()}</p>;
+    }
+  }
+
+  /*
+  shrinkArea() {
+    this.element.getElementsByTagName('time').
+    this.element.getElementById('time').style.display = 'none';
+    this.element.getElementById('weatherText').style.display = 'none';
+    this.element.getElementById('seperator').style.display = 'none';
+  }*/
+
+  render() {
+    return (
+      <Host>
+        <slot>{this.showEverything()}</slot>
       </Host>
     );
   }

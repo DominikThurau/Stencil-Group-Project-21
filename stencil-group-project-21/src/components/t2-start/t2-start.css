@@ -4,7 +4,11 @@
   background-color: #e5edf8;
   color: white;
   width: 375px;
+}
+
+.parentDiv {
   height: 812px;
+  position: relative;
 }
 
 p {
@@ -36,10 +40,6 @@ hr {
   margin: 0 auto;
 }
 
-.button {
-  margin: 0 auto;
-}
-
 #time {
   font-weight: 400;
   font-size: 2.5rem;
@@ -48,15 +48,76 @@ hr {
 
 #date {
   font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
 #worldDay {
-  margin: 0 1rem 0 1rem;
+  margin: 1rem 0 0 0;
 }
 
-.kreis {
+.scrollKreis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 1.8rem;
+  left: 0;
+  right: 0;
   background-color: #ffb471;
-  width: 60px;
-  height: 60px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 100px;
+  margin: 0 auto;
+  animation-name: scrollAnim;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
+@keyframes scrollAnim {
+  0% {
+    bottom: 1.8rem;
+  }
+  50% {
+    bottom: 4rem;
+  }
+  100% {
+    bottom: 1.8rem;
+  }
+}
+
+.dreieck {
+  width: 0;
+  height: 0;
+  border-left: 1.2rem solid transparent;
+  border-right: 1.2rem solid transparent;
+  border-top: 2rem solid #ffffff;
+
+  margin-top: 0.5rem;
+}
+
+#weatherIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+
+#weatherText {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#weatherText p {
+  margin: 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#temperature {
+  font-size: 1.5rem;
+}
+
+#location {
+  font-size: 0.8rem;
 }
