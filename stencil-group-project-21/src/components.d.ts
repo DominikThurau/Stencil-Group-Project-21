@@ -5,8 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { CalendarEntry } from "./utils/calendar-entry";
 export namespace Components {
     interface T2Calendar {
+        "dayNames": string[];
+        "monthNames": string[];
+        "showFillDays": boolean;
     }
     interface T2Canvas {
     }
@@ -67,6 +71,11 @@ declare global {
 }
 declare namespace LocalJSX {
     interface T2Calendar {
+        "dayNames"?: string[];
+        "monthNames"?: string[];
+        "onDayChanged"?: (event: CustomEvent<CalendarEntry>) => void;
+        "onMonthChanged"?: (event: CustomEvent<CalendarEntry>) => void;
+        "showFillDays"?: boolean;
     }
     interface T2Canvas {
     }
