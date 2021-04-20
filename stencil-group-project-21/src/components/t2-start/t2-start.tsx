@@ -35,11 +35,15 @@ export class T2Start {
 
   tempInC() {
     let celsius = Number.parseFloat(this.weatherData.main.temp).toFixed(1);
-    return celsius + '°';
+    return celsius + '°C';
   }
   weatherIcon() {
     const imgUrl = 'http://openweathermap.org/img/wn/' + this.weatherData.weather[0].icon + '@2x.png';
-    return <img src={imgUrl}></img>;
+    if (this.pageYOffset == 0) {
+      return <img src={imgUrl}></img>;
+    } else {
+      return <img src={imgUrl} style={{ width: '6rem', height: '6rem', verticalAlign: 'middle', marginRight: '-0.5rem' }}></img>;
+    }
   }
 
   /*
@@ -131,19 +135,17 @@ export class T2Start {
     } else if (this.pageYOffset > 0) {
       return (
         <div class="wrapper" style={{ width: 'inherit', paddingLeft: '2rem' }}>
-          <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '1.5rem' }}>
+          <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '0.5rem' }}>
             {this.date()}
           </p>
-          <p id="weatherIcon" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-            {this.weatherIcon()}
-          </p>
+          {this.displayWeather()}
         </div>
       );
     }
   }
 
   displayWeather() {
-    if (this.pageYOffset < 200) {
+    if (this.pageYOffset == 0) {
       return (
         <div id="weatherInfo">
           <p id="weatherIcon">{this.weatherIcon()}</p>
@@ -154,7 +156,14 @@ export class T2Start {
         </div>
       );
     } else {
-      return <p id="weatherIcon">{this.weatherIcon()}</p>;
+      return (
+        <div style={{ display: 'inline-block' }}>
+          <p id="weatherIcon">{this.weatherIcon()}</p>
+          <p id="temperature" style={{ display: 'inline-block', margin: '0', verticalAlign: 'middle' }}>
+            {this.tempInC()}
+          </p>
+        </div>
+      );
     }
   }
 
