@@ -44,6 +44,7 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
+  overflow: hidden;
 }
 
 .box-studium {
@@ -65,13 +66,11 @@ h1 {
 .box-privat {
   background-color: #EB8F90;
   margin-top: 200px;
-  height: 150px !important;
 }
 
 .box-notizen {
   background-color: #12406A;
   margin-top: 300px;
-  height: 150px !important;
 } 
 
 .kreis {
