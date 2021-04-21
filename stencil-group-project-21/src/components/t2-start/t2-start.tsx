@@ -39,7 +39,7 @@ export class T2Start {
   }
   weatherIcon() {
     const imgUrl = 'http://openweathermap.org/img/wn/' + this.weatherData.weather[0].icon + '@2x.png';
-    if (this.pageYOffset == 0) {
+    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
       return <img src={imgUrl}></img>;
     } else {
       return <img src={imgUrl} style={{ width: '6rem', height: '6rem', verticalAlign: 'middle', marginRight: '-0.5rem' }}></img>;
@@ -114,7 +114,7 @@ export class T2Start {
   }
 
   showEverything() {
-    if (this.pageYOffset == 0) {
+    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
       return (
         <div class="parentDiv">
           {this.changeBackground()}
@@ -132,7 +132,7 @@ export class T2Start {
           </div>
         </div>
       );
-    } else if (this.pageYOffset > 0) {
+    } else if (this.pageYOffset >= 50) {
       return (
         <div class="wrapper" style={{ width: 'inherit', paddingLeft: '2rem' }}>
           <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '0.5rem' }}>
@@ -145,7 +145,7 @@ export class T2Start {
   }
 
   displayWeather() {
-    if (this.pageYOffset == 0) {
+    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
       return (
         <div id="weatherInfo">
           <p id="weatherIcon">{this.weatherIcon()}</p>
