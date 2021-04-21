@@ -1,7 +1,6 @@
 :host {
   display: block;
   font-family: hero-new, sans-serif;
-  background-color: #e5edf8;
   color: white;
   width: 375px;
 }
@@ -30,6 +29,7 @@ hr {
   height: 812px;
   opacity: 0.4;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .wrapper {
