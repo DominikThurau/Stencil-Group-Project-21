@@ -12,6 +12,7 @@ export class T2Random {
   personBuilder: HTMLInputElement;
 
   groupCount: HTMLInputElement;
+  groupCount2: HTMLInputElement;
   personCount: HTMLInputElement;
 
   constructor(){
@@ -97,7 +98,7 @@ export class T2Random {
                   <input type="radio" name="modi" 
                   ref={el => (this.personBuilder = el as HTMLInputElement)}/>
                   Bilde Gruppen mit je <input type="number" class="textfeld-anzahl" min="2" max="999" step="1" value="4"
-                  ref={el => (this.groupCount = el as HTMLInputElement)}/> 
+                  ref={el => (this.groupCount2 = el as HTMLInputElement)}/> 
                   Personen</div>      
               </div>
               <button type="button" class="zufallsbutton" 
