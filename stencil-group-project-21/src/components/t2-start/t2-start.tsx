@@ -75,7 +75,6 @@ export class T2Start {
   }
 
   worldDay() {
-    //console.log(this.day() + '; ' + this.month() + '; ' + JSON.stringify(this.content));
     let result = this.content.filter(welttag => welttag.day == this.day() && welttag.month == this.month());
     if (result[0]) {
       return <p id="worldDay">{result[0].title}</p>;
@@ -109,7 +108,6 @@ export class T2Start {
 
   @Listen('scroll', { target: 'window' })
   handleScroll(ev) {
-    console.log('the body was scrolled', ev);
     this.pageYOffset = ev.currentTarget.pageYOffset;
   }
 
