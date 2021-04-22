@@ -12,12 +12,12 @@ export class T2Random {
   personBuilder: HTMLInputElement;
 
   groupCount: HTMLInputElement;
-  groupCount2: HTMLInputElement;
   personCount: HTMLInputElement;
 
   constructor(){
     this.buildGroups = this.buildGroups.bind(this);
     this.groupBuilderFunction = this.groupBuilderFunction.bind(this);
+    this.numberOfPeopleFunction = this.numberOfPeopleFunction.bind(this);
   }
 
   componentDidRender() {
@@ -26,19 +26,22 @@ export class T2Random {
 
     //this.nameInput = this.canvas.getContext('2d');
   }
-
+  
   buildGroups(){
     //this.nameList = this.nameInput.value;
     //console.log(this.nameList);
     this.nameList = this.nameInput.value.split(' ');
     console.log(this.groupBuilder.checked);
+    console.log(this.personBuilder.checked);
     if(this.groupBuilder.checked){
       this.groupBuilderFunction();
+      //alert("Modus1")
     } else{
-
+      this.numberOfPeopleFunction();
+      //alert("Modus2")
     }
   }
-
+//Modus 1: Bilde ... Gruppen
   groupBuilderFunction(){
     let groups: String = "";
     let shuffledList = this.nameList.sort(() => Math.random() - 0.5);
@@ -66,6 +69,34 @@ export class T2Random {
     }
     alert(groups);
   }
+//Modus 2: Bilde Gruppen mit ... Personen
+  numberOfPeopleFunction(){
+    let persons: String = "";
+    let shuffledList = this.nameList.sort(() => Math.random() - 0.5);
+    //console.log(pPGroup);
+    let index = 0;
+    for(let i = 0; i < parseInt(this.personCount.value); i++){
+      persons += "Gruppe " + (i + 1) + "\n";
+      //Calc Groups per Persons
+      let pPPersons
+      if((shuffledList.length - index) % (parseInt(this.personCount.value) - i)!=0){
+        pPPersons = (shuffledList.length - index) / (parseInt(this.personCount.value) - i);
+      } else{
+        pPPersons = Math.round(shuffledList.length - index) / (parseInt(this.personCount.value) - i);
+      }
+      //let pPGroup = Math.round((shuffledList.length / parseInt(this.groupCount.value)));
+      for(let x = 0; x < pPPersons; x++){
+        if((x+1) == (pPPersons)){
+          persons += shuffledList[index];
+        } else{
+          persons += shuffledList[index] + ", ";
+        }
+        index++;
+      }
+      persons += "\n";
+    }
+    alert(persons);
+  }
 
   render() {
     return (
@@ -91,14 +122,14 @@ export class T2Random {
                 <div id="auswahl" class="anzahl-gruppen">
                   <input type="radio" name="modi" checked
                   ref={el => (this.groupBuilder = el as HTMLInputElement)}/>
-                  Bilde <input type="number" class="textfeld-anzahl" min="2" max="999" step="1" value="3" 
+                  Bilde <input type="number" class="textfeld-anzahl" min="2" max="100" step="1" value="3" 
                   ref={el => (this.groupCount = el as HTMLInputElement)}/> 
                   Gruppen</div>
                   <div id="auswahl" class="anzahl-personen">
                   <input type="radio" name="modi" 
                   ref={el => (this.personBuilder = el as HTMLInputElement)}/>
-                  Bilde Gruppen mit je <input type="number" class="textfeld-anzahl" min="2" max="999" step="1" value="4"
-                  ref={el => (this.groupCount2 = el as HTMLInputElement)}/> 
+                  Bilde Gruppen mit je <input type="number" class="textfeld-anzahl" min="2" max="100" step="1" value="4"
+                  ref={el => (this.personCount = el as HTMLInputElement)}/> 
                   Personen</div>      
               </div>
               <button type="button" class="zufallsbutton" 
