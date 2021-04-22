@@ -46,7 +46,7 @@ export class T2Random {
     for(let i = 0; i < parseInt(this.groupCount.value); i++){
       groups += "Gruppe " + (i + 1) + "\n";
       //Calc Persons per Group
-      let pPGroup
+      let pPGroup;
       if((shuffledList.length - index) % (parseInt(this.groupCount.value) - i)!=0){
         pPGroup = (shuffledList.length - index) / (parseInt(this.groupCount.value) - i);
       } else{
