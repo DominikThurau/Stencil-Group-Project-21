@@ -7,6 +7,13 @@ shadow: true,
 })
 export class T2Footer {
 
+ topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+  }
+
+
 render() {
 return (
 <Host>
@@ -14,8 +21,9 @@ return (
     <div class="platzhalter">leer</div>
     <div class="backgroundcolor-footer">
       <div class="bg-footer">
-      <div class="icon-up">
-              <slot name="up" />
+      <div class="icon-up" id="icon-up" onClick={this.topFunction} >
+        <div class="up"></div>
+              <slot name="up"/>
             </div>
         <div id="kategorie" class="box-studium">Erbe</div>
         <div id="kategorie" class="box-arbeit">Kontaktdaten Dozenten</div>
