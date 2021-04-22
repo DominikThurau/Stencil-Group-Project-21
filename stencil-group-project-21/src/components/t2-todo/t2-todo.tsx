@@ -77,8 +77,9 @@ export class T2Todo {
             <button type="button" class="button-hinzu" onClick={this.addTask}>
               Hinzufügen
             </button>
-            <div class="kreis">A</div>
-            <div class="pfeil-footer">ᐱ</div>
+            <div class="icon-up">
+              <slot name="up" />
+            </div>
           </div>
           <slot></slot>
         </div>
