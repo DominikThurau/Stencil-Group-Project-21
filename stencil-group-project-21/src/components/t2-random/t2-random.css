@@ -11,6 +11,7 @@ h1 {
   text-transform: uppercase;
   display: inline;
 }
+
 h2{
   font-family: hero-new, sans-serif;
   font-weight: 400;
@@ -21,7 +22,6 @@ h2{
 .textfeld-namen{
   width: 330px;
   height: 135px;
-  border-radius: 20px;
   margin-left: 17px;
   resize: none;
 }
@@ -84,8 +84,11 @@ h2{
   background-color: #eb8f90;
   color: white;
   margin-top: 40px;
-  border-radius: 20px;
   border-color: #707070;
+}
+
+.zufallsbutton:focus{
+  box-shadow:rgba(70,70,70,0.7) 0px 5px 15px;
 }
 
 .kreis {
@@ -119,7 +122,7 @@ h2{
 }
 
 .textfeld-anzahl{
-  width: 30px;
+  width: 40px;
   height: 15px;
   margin-top: 25px;
 }

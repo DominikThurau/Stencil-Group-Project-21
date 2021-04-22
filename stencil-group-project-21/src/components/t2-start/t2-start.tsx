@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Listen, State } from '@stencil/core';
 
 @Component({
   tag: 't2-start',
@@ -8,6 +8,7 @@ import { Component, Host, h } from '@stencil/core';
 export class T2Start {
   content: WorldDay[];
   weatherData: any;
+  @State() pageYOffset = 0;
 
   componentWillRender() {
     return Promise.all([this.fetchWorldDays(), this.getWeather()]);
@@ -30,22 +31,19 @@ export class T2Start {
     return fetch(apiUrl)
       .then(response => response.json())
       .then(data => (this.weatherData = data));
-
-    /*const response = await fetch(apiUrl);
-    const data = await response.json();
-    const { name, weather, main } = data;
-    console.log(name);
-    
-    console.log(main.temp);*/
   }
 
   tempInC() {
     let celsius = Number.parseFloat(this.weatherData.main.temp).toFixed(1);
-    return celsius + '°';
+    return celsius + '°C';
   }
   weatherIcon() {
     const imgUrl = 'http://openweathermap.org/img/wn/' + this.weatherData.weather[0].icon + '@2x.png';
-    return <img src={imgUrl}></img>;
+    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
+      return <img src={imgUrl}></img>;
+    } else {
+      return <img src={imgUrl} style={{ width: '6rem', height: '6rem', verticalAlign: 'middle', marginRight: '-0.5rem' }}></img>;
+    }
   }
 
   /*
@@ -80,31 +78,107 @@ export class T2Start {
     //console.log(this.day() + '; ' + this.month() + '; ' + JSON.stringify(this.content));
     let result = this.content.filter(welttag => welttag.day == this.day() && welttag.month == this.month());
     if (result[0]) {
-      return <p>{result[0].title}</p>;
+      return <p id="worldDay">{result[0].title}</p>;
     } else {
       return '';
     }
   }
 
-  render() {
-    return (
-      <Host>
-        <slot>
+  changeBackground() {
+    this.weatherData.weather[0].icon;
+    const thunderstorm = 'Thunderstorm';
+    const drizzle = 'Drizzle';
+    const rain = 'Rain';
+    const snow = 'Snow';
+    const clear = 'Clear';
+    const clouds = 'Clouds';
+    if (this.weatherData.weather[0].main == thunderstorm) {
+      return <img src="assets/img/thunderstorm.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == drizzle || this.weatherData.weather[0].main == rain) {
+      return <img src="assets/img/raindrops.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == snow) {
+      return <img src="assets/img/snow.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == clouds) {
+      return <img src="assets/img/clouds.jpg" id="weatherBackground"></img>;
+    } else if (this.weatherData.weather[0].main == clear) {
+      return <img src="assets/img/clear.jpg" id="weatherBackground"></img>;
+    } else {
+      return <img src="assets/img/wind.jpg" id="weatherBackground"></img>;
+    }
+  }
+
+  @Listen('scroll', { target: 'window' })
+  handleScroll(ev) {
+    console.log('the body was scrolled', ev);
+    this.pageYOffset = ev.currentTarget.pageYOffset;
+  }
+
+  showEverything() {
+    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
+      return (
+        <div class="parentDiv">
+          {this.changeBackground()}
           <div class="container">
             <div class="wrapper">
               <p id="time">{this.time()}</p>
-              <hr></hr>
+              <hr id="seperator"></hr>
               <p id="date">{this.date()}</p>
               {this.worldDay()}
-              <img id="weatherIcon"></img>
-              <p id="weather">
-                {this.weatherIcon()}
-                {this.tempInC()}
-              </p>
+              {this.displayWeather()}
             </div>
-            <div class="kreis button"></div>
           </div>
-        </slot>
+          <div class="scrollKreis">
+            <div class="dreieck"></div>
+          </div>
+        </div>
+      );
+    } else if (this.pageYOffset >= 50) {
+      return (
+        <div class="wrapper" style={{ width: 'inherit', paddingLeft: '2rem' }}>
+          <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '0.5rem' }}>
+            {this.date()}
+          </p>
+          {this.displayWeather()}
+        </div>
+      );
+    }
+  }
+
+  displayWeather() {
+    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
+      return (
+        <div id="weatherInfo">
+          <p id="weatherIcon">{this.weatherIcon()}</p>
+          <div id="weatherText">
+            <p id="location">Mosbach:</p>
+            <p id="temperature">{this.tempInC()}</p>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ display: 'inline-block' }}>
+          <p id="weatherIcon">{this.weatherIcon()}</p>
+          <p id="temperature" style={{ display: 'inline-block', margin: '0', verticalAlign: 'middle' }}>
+            {this.tempInC()}
+          </p>
+        </div>
+      );
+    }
+  }
+
+  /*
+  shrinkArea() {
+    this.element.getElementsByTagName('time').
+    this.element.getElementById('time').style.display = 'none';
+    this.element.getElementById('weatherText').style.display = 'none';
+    this.element.getElementById('seperator').style.display = 'none';
+  }*/
+
+  render() {
+    return (
+      <Host>
+        <slot>{this.showEverything()}</slot>
       </Host>
     );
   }
