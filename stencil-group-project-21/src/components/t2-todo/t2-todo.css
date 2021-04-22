@@ -29,6 +29,7 @@ h1 {
 }
 
 #kategorie {
+  float:left;
   text-align: left;
   color: white;
   width: 342px;
@@ -44,7 +45,6 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
-  overflow: hidden;
 }
 
 .box-studium {
@@ -53,9 +53,9 @@ h1 {
 }
 .look:hover
 {
-        -webkit-transform: translate(0, -100px);
-        -ms-transform: translate(0, -100px);
-        transform: translate(0, -100px);
+        -webkit-transform: translate(0, -50px);
+        -ms-transform: translate(0, -50px);
+        transform: translate(0, -50px);
 }
 
 .box-arbeit {
@@ -113,7 +113,7 @@ h1 {
 }
 
 .hinzufuegen {
-  margin-top: 480px;
+  margin-top: 10px;
   margin-left: 10px;
   width: 342px;
   height: 100px;
@@ -133,4 +133,12 @@ h1 {
   margin-top: 5px;
   border-radius: 20px;
   border-color: #707070;
+}
+
+.card-wrapper{
+  margin-top: 0;
+  padding-top: 50px;
+  position: relative;
+  height: 450px;
+  overflow: hidden;
 }
