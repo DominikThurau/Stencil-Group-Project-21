@@ -34,7 +34,7 @@ hr {
 
 .wrapper {
   width: 12rem;
-  background-color: #12406a;
+  background-color: #eb8f90;
   border-radius: 1rem;
   padding: 1rem;
   margin: 0 auto;
@@ -69,10 +69,10 @@ hr {
   border-radius: 100px;
   margin: 0 auto;
   animation-name: scrollAnim;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-delay: 0.5s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes scrollAnim {
