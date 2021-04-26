@@ -73,36 +73,6 @@ h1 {
   margin-top: 300px;
 } 
 
-.kreis {
-  background-color: #FFB471;
-  color: #FFB471;
-  text-align: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 100px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  margin-top: 20px;
-}
-
-.pfeil-footer {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 50px;
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  font-size: 50px;
-  color: #e5edf8;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}
-
 .kategorien-auswahl{
   font-family: hero-new, sans-serif;
   font-size: 15px;
@@ -116,7 +86,7 @@ h1 {
   margin-top: 10px;
   margin-left: 10px;
   width: 342px;
-  height: 100px;
+  height: 80px;
   border-radius: 10px;
   resize: none;
 }
@@ -127,7 +97,7 @@ h1 {
   font-size: 15px;
   height: 30px;
   width: 100px;
-  margin-left: 140px;
+  margin-left: 130px;
   background-color: #eb8f90;
   color: white;
   margin-top: 5px;
@@ -141,4 +111,12 @@ h1 {
   position: relative;
   height: 450px;
   overflow: hidden;
+}
+
+.icon-up {
+  background-color: none;
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  margin-top: 10px;
 }

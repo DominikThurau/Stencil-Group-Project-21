@@ -19,6 +19,7 @@ export namespace Components {
     interface T2Random {
     }
     interface T2Start {
+        "weatherData": any;
     }
     interface T2Todo {
     }
@@ -84,6 +85,7 @@ declare namespace LocalJSX {
     interface T2Random {
     }
     interface T2Start {
+        "weatherData"?: any;
     }
     interface T2Todo {
     }

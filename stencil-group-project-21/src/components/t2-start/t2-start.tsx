@@ -1,4 +1,4 @@
-import { Component, Host, h, Listen, State } from '@stencil/core';
+import { Component, Host, h, Listen, State, Prop } from '@stencil/core';
 
 @Component({
   tag: 't2-start',
@@ -7,11 +7,11 @@ import { Component, Host, h, Listen, State } from '@stencil/core';
 })
 export class T2Start {
   content: WorldDay[];
-  weatherData: any;
+  @Prop() weatherData: any;
   @State() pageYOffset = 0;
 
   componentWillRender() {
-    return Promise.all([this.fetchWorldDays(), this.getWeather()]);
+    return Promise.all([this.fetchWorldDays()]);
   }
 
   private fetchWorldDays() {
@@ -20,17 +20,34 @@ export class T2Start {
       .then((data: WorldDay[]) => (this.content = data));
   }
 
+  componentShouldUpdate(updated, old) {
+    return updated != old;
+  }
+
   /*
   Abrufen der API-Daten orientiert an URL: https://www.youtube.com/watch?v=uxf0--uiX0I&t=692s
   */
+  componentWillLoad() {
+    this.getWeather();
+  }
+
   getWeather() {
     const apiKey: string = '501ed5e2d77d2c5c368e797804806020';
     const cityID = 2869117;
     const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey + '&units=metric';
 
-    return fetch(apiUrl)
+    fetch(apiUrl)
       .then(response => response.json())
       .then(data => (this.weatherData = data));
+    setInterval(() => {
+      const apiKey: string = '501ed5e2d77d2c5c368e797804806020';
+      const cityID = 2869117;
+      const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + apiKey + '&units=metric';
+
+      return fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => (this.weatherData = data));
+    }, 900000);
   }
 
   tempInC() {
@@ -39,7 +56,7 @@ export class T2Start {
   }
   weatherIcon() {
     const imgUrl = 'http://openweathermap.org/img/wn/' + this.weatherData.weather[0].icon + '@2x.png';
-    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
+    if (this.pageYOffset == 0 || this.pageYOffset < 20) {
       return <img src={imgUrl}></img>;
     } else {
       return <img src={imgUrl} style={{ width: '6rem', height: '6rem', verticalAlign: 'middle', marginRight: '-0.5rem' }}></img>;
@@ -84,25 +101,27 @@ export class T2Start {
   }
 
   changeBackground() {
-    this.weatherData.weather[0].icon;
-    const thunderstorm = 'Thunderstorm';
-    const drizzle = 'Drizzle';
-    const rain = 'Rain';
-    const snow = 'Snow';
-    const clear = 'Clear';
-    const clouds = 'Clouds';
-    if (this.weatherData.weather[0].main == thunderstorm) {
-      return <img src="assets/img/thunderstorm.jpg" id="weatherBackground"></img>;
-    } else if (this.weatherData.weather[0].main == drizzle || this.weatherData.weather[0].main == rain) {
-      return <img src="assets/img/raindrops.jpg" id="weatherBackground"></img>;
-    } else if (this.weatherData.weather[0].main == snow) {
-      return <img src="assets/img/snow.jpg" id="weatherBackground"></img>;
-    } else if (this.weatherData.weather[0].main == clouds) {
-      return <img src="assets/img/clouds.jpg" id="weatherBackground"></img>;
-    } else if (this.weatherData.weather[0].main == clear) {
-      return <img src="assets/img/clear.jpg" id="weatherBackground"></img>;
-    } else {
-      return <img src="assets/img/wind.jpg" id="weatherBackground"></img>;
+    if (this.weatherData) {
+      this.weatherData.weather[0].icon;
+      const thunderstorm = 'Thunderstorm';
+      const drizzle = 'Drizzle';
+      const rain = 'Rain';
+      const snow = 'Snow';
+      const clear = 'Clear';
+      const clouds = 'Clouds';
+      if (this.weatherData.weather[0].main == thunderstorm) {
+        return <img src="assets/img/thunderstorm.jpg" id="weatherBackground"></img>;
+      } else if (this.weatherData.weather[0].main == drizzle || this.weatherData.weather[0].main == rain) {
+        return <img src="assets/img/raindrops.jpg" id="weatherBackground"></img>;
+      } else if (this.weatherData.weather[0].main == snow) {
+        return <img src="assets/img/snow.jpg" id="weatherBackground"></img>;
+      } else if (this.weatherData.weather[0].main == clouds) {
+        return <img src="assets/img/clouds.jpg" id="weatherBackground"></img>;
+      } else if (this.weatherData.weather[0].main == clear) {
+        return <img src="assets/img/clear.jpg" id="weatherBackground"></img>;
+      } else {
+        return <img src="assets/img/wind.jpg" id="weatherBackground"></img>;
+      }
     }
   }
 
@@ -112,7 +131,7 @@ export class T2Start {
   }
 
   showEverything() {
-    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
+    if (this.pageYOffset == 0 || this.pageYOffset < 20) {
       return (
         <div class="parentDiv">
           {this.changeBackground()}
@@ -130,7 +149,7 @@ export class T2Start {
           </div>
         </div>
       );
-    } else if (this.pageYOffset >= 50) {
+    } else if (this.pageYOffset >= 20) {
       return (
         <div class="wrapper" style={{ width: 'inherit', paddingLeft: '2rem' }}>
           <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '0.5rem' }}>
@@ -143,25 +162,27 @@ export class T2Start {
   }
 
   displayWeather() {
-    if (this.pageYOffset == 0 || this.pageYOffset < 50) {
-      return (
-        <div id="weatherInfo">
-          <p id="weatherIcon">{this.weatherIcon()}</p>
-          <div id="weatherText">
-            <p id="location">Mosbach:</p>
-            <p id="temperature">{this.tempInC()}</p>
+    if (this.weatherData) {
+      if (this.pageYOffset == 0 || this.pageYOffset < 20) {
+        return (
+          <div id="weatherInfo">
+            <p id="weatherIcon">{this.weatherIcon()}</p>
+            <div id="weatherText">
+              <p id="location">Mosbach:</p>
+              <p id="temperature">{this.tempInC()}</p>
+            </div>
           </div>
-        </div>
-      );
-    } else {
-      return (
-        <div style={{ display: 'inline-block' }}>
-          <p id="weatherIcon">{this.weatherIcon()}</p>
-          <p id="temperature" style={{ display: 'inline-block', margin: '0', verticalAlign: 'middle' }}>
-            {this.tempInC()}
-          </p>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div style={{ display: 'inline-block' }}>
+            <p id="weatherIcon">{this.weatherIcon()}</p>
+            <p id="temperature" style={{ display: 'inline-block', margin: '0', verticalAlign: 'middle' }}>
+              {this.tempInC()}
+            </p>
+          </div>
+        );
+      }
     }
   }
 
