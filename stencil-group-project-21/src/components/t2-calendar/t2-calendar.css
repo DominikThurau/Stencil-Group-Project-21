@@ -147,7 +147,7 @@ header {
   margin: 15px 0 0 25px;
   text-align: left;
   background: white;
-  height: 280px;
+  height: 50px;
   overflow: scroll;
   width: 84%;
   border: 1px solid #FFB471;
@@ -156,4 +156,5 @@ header {
 }
 ul{
   margin: 0 auto;
+  list-style: none;
 }

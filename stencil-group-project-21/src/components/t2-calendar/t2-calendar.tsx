@@ -201,16 +201,13 @@ export class MyComponent {
         </div>
       </div>
       </div>
+      <div class= "inputKalender">
+      <input id="nameEvent" placeholder="Name des Events"></input>
+      <button id="eintragen">eintragen</button>
+      </div>
       <div class= "scrollFeld">
         <ul>
-        <li>import kalenderDaten</li>
-        <li>Rein optisch ist diese Variante nicht so schön anzusehen, weil die Scrollbalken auch eingeblendet werden, wenn sie bei ausreichender Div-Größe überhaupt nicht benötigt werden. Außerdem erscheint dabei zusätzlich auch noch ein horizontaler Scrollbalken, der meist überhaupt nicht benötigt wird.</li>
-        <li>Bleibt noch zu beachten, dass die Scrollbar selbst eine Breite von ca. 16px hat und sich um diesen Wert dann die Breite des Inhaltsbereichs verringert.</li>
         <li></li>
-        <li>und so</li>
-        <li>soll das ganze</li>
-        <li>dann</li>
-        <li>aussehen!</li>
         </ul>
       </div>
       </div>
