@@ -41,7 +41,7 @@ h1 {
 
 #trennlinie-d-m {
   width: 85%;
-  align: center;
+  align-items: center;
   color: #FFB471;
   margin: 0 auto;
 }
@@ -114,7 +114,8 @@ header {
 }
 
 .material .days-in-month i.active {
-  border: 2px solid #000;
+  border: 1px solid gray;
+  background-color: rgba(220, 220, 220, 0.548);
   border-radius: 20%;
   padding: .6rem;
 }

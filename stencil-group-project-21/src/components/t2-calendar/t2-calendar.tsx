@@ -39,6 +39,8 @@ export class MyComponent {
   private fillStartCount: number;
   private fillEndCount: number;
   readonly today: CalendarEntry;
+  eventField: HTMLElement;
+  nameEventField: HTMLInputElement;
 
   constructor() {
     this.today = Calendar.getToday();
@@ -52,6 +54,7 @@ export class MyComponent {
   }
 
   componentWillLoad() {
+    this.saveEvent = this.saveEvent.bind(this);
     this.setCalendarDetails();
   }
 
@@ -150,6 +153,7 @@ export class MyComponent {
   }
 
   isSelectedDay(day: number, index: number) {
+
     return typeof this.selectedDate !== 'undefined'
       && this.selectedDate.day === day
       && this.selectedDate.month === this.date.month
@@ -157,6 +161,26 @@ export class MyComponent {
       && !(index < this.fillStartCount || index >= this.fillEndCount);
   }
 
+  saveEvent() {
+    //console.log("saved");
+    let event = this.nameEventField.value;
+    localStorage.setItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year, event);
+  }
+
+  loadEvent() {
+    this.eventField.innerText = localStorage.getItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year + ": " + this.nameEventField.value);
+  }
+  /*loadCanvas() {
+    let dataURL = localStorage.getItem("canvas");
+    let img = new Image;
+    img.src = dataURL;
+    this.setEraser = this.setEraser.bind(this);
+    let that = this;
+    img.onload = function () {
+      //console.log(that);
+      that.context.drawImage(img, 0, 0);
+    }
+  }*/
   render() {
     const date = this.getValidDate();
 
@@ -182,14 +206,22 @@ export class MyComponent {
         <hr id="trennlinie-d-m"></hr>
         <div class="days-in-month">
           {this.daysInMonth.map((day, index) => {
-            const classNameDigit = this.getDigitClassNames(day, date.month, date.year, index);
+            var classNameDigit = this.getDigitClassNames(day, date.month, date.year, index);
             if (index < this.fillStartCount || index >= this.fillEndCount) {
               return (
                 <span class="disabled">{this.showFillDays ? day : ''}</span>
               );
             } else {
+              let that = this;
               return (
-                <span onClick={() => this.daySelectedHandler(day)}>
+                <span onClick={function(){
+                  
+                  that.daySelectedHandler(day); 
+                  this.setAttribute("id","para-1");
+                  that.loadEvent();
+                  that.saveEvent();
+                
+                }}>
                   <i class={classNameDigit}>
                     {day}
                   </i>
@@ -202,17 +234,13 @@ export class MyComponent {
       </div>
       </div>
       <div class= "inputKalender">
-      <input id="nameEvent" placeholder="Name des Events"></input>
-      <button id="eintragen">eintragen</button>
+      <input id="nameEvent" placeholder="Name des Events" ref={el => (this.nameEventField = el as HTMLInputElement)}></input>
+      <button id="eintragen" onClick={this.saveEvent}>eintragen</button>
       </div>
-      <div class= "scrollFeld">
-        <ul>
-        <li></li>
-        </ul>
-      </div>
+      <div class= "scrollFeld" ref={el => (this.eventField = el as HTMLElement)}>
       </div>
       </div>
     );
-  }
+    </div>
+    )};
 }
-
