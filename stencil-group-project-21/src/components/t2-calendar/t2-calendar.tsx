@@ -164,6 +164,7 @@ export class MyComponent {
       <div id="calender-wrapper">
         <h1>Kalender</h1>
       <div id="calender-background">
+      <div id="calender-material">
       <div class="calendar material">
         <header>
           <span onClick={this.switchToPreviousMonth}>
@@ -200,53 +201,21 @@ export class MyComponent {
         </div>
       </div>
       </div>
+      <div class= "scrollFeld">
+        <ul>
+        <li>import kalenderDaten</li>
+        <li>Rein optisch ist diese Variante nicht so schön anzusehen, weil die Scrollbalken auch eingeblendet werden, wenn sie bei ausreichender Div-Größe überhaupt nicht benötigt werden. Außerdem erscheint dabei zusätzlich auch noch ein horizontaler Scrollbalken, der meist überhaupt nicht benötigt wird.</li>
+        <li>Bleibt noch zu beachten, dass die Scrollbar selbst eine Breite von ca. 16px hat und sich um diesen Wert dann die Breite des Inhaltsbereichs verringert.</li>
+        <li></li>
+        <li>und so</li>
+        <li>soll das ganze</li>
+        <li>dann</li>
+        <li>aussehen!</li>
+        </ul>
+      </div>
+      </div>
       </div>
     );
   }
 }
-
-/*import { Component, Host, h } from '@stencil/core';
-
-@Prop() dayNames = [
-  'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'
-];
-@Prop() monthNames = [
-  'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-];
-@Prop() showFillDays = true;
-/*
-@Prop() tag = [
-  'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'
-];
-@Prop() monat = [
-  'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-];
-@Prop() showFillDays = true;
-
-@State() date = Calendar.getToday();
-@State() daysInMonth: number[];
-@State() selectedDate: CalendarEntry;
-@State() eventDates = [];
-
-@Event({
-  eventName: 'dayChanged',
-  composed: true,
-  cancelable: true,
-  bubbles: true,
-}) dayChanged: EventEmitter<CalendarEntry>;
-@Event({
-  eventName: 'monthChanged',
-  composed: true,
-  cancelable: true,
-  bubbles: true,
-}) monthChanged: EventEmitter<CalendarEntry>;
-
-private fillStartCount: number;
-private fillEndCount: number;
-readonly today: CalendarEntry;
-
-constructor() {
-  this.today = Calendar.getToday();
-}
-*/
 

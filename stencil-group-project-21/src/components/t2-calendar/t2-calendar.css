@@ -23,6 +23,13 @@ h1 {
   margin: 0 auto;
   position: relative;
   text-align: center;
+  font-family: hero-new,sans-serif;
+  font-weight: 100;
+}
+
+#calender-material {
+  width: 100%;
+  margin: 0 0 0 20px;
 }
 
 #calender-display {
@@ -31,12 +38,14 @@ h1 {
   padding-top: 1%;
   border-radius: 20px;
 }
+
 #trennlinie-d-m {
   width: 85%;
   align: center;
   color: #FFB471;
   margin: 0 auto;
 }
+
 /*Kopie:*/
 .calendar {
   width: 80%;
@@ -90,7 +99,7 @@ header {
 }
 
 .days-in-month i.padding-single-digit {
-  padding: .8rem 1.1rem;
+  padding: .7rem 1.1rem;
 }
 
 .days-in-month span.disabled {
@@ -101,19 +110,19 @@ header {
 /** Material style **/
 .material .days-in-month span:hover:not(.disabled) i:not(.selected) {
   background: #ffb37191;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .material .days-in-month i.active {
   border: 2px solid #000;
-  border-radius: 50%;
+  border-radius: 20%;
   padding: .6rem;
 }
 
 .material .days-in-month i.selected {
   background: #FFB471;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .material .days-in-month i.has-event:before {
@@ -132,4 +141,19 @@ header {
 .material .days-in-month i.active.has-event:before {
   top: .1rem;
   left: 1.1rem;
+}
+
+.scrollFeld{
+  margin: 15px 0 0 25px;
+  text-align: left;
+  background: white;
+  height: 280px;
+  overflow: scroll;
+  width: 84%;
+  border: 1px solid #FFB471;
+  padding: 5px 5px 0 0;
+  font-size: 10pt;
+}
+ul{
+  margin: 0 auto;
 }
