@@ -39,6 +39,7 @@ export class MyComponent {
   private fillStartCount: number;
   private fillEndCount: number;
   readonly today: CalendarEntry;
+  eventField: HTMLElement;
 
   constructor() {
     this.today = Calendar.getToday();
@@ -52,6 +53,7 @@ export class MyComponent {
   }
 
   componentWillLoad() {
+    this.saveEvent = this.saveEvent.bind(this);
     this.setCalendarDetails();
   }
 
@@ -150,6 +152,7 @@ export class MyComponent {
   }
 
   isSelectedDay(day: number, index: number) {
+
     return typeof this.selectedDate !== 'undefined'
       && this.selectedDate.day === day
       && this.selectedDate.month === this.date.month
@@ -157,6 +160,25 @@ export class MyComponent {
       && !(index < this.fillStartCount || index >= this.fillEndCount);
   }
 
+  saveEvent(event:string) {
+    //console.log("saved");
+    localStorage.setItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year, event);
+  }
+
+  loadEvent(){
+    this.eventField.innerText = localStorage.getItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year);
+  }
+  /*loadCanvas() {
+    let dataURL = localStorage.getItem("canvas");
+    let img = new Image;
+    img.src = dataURL;
+    this.setEraser = this.setEraser.bind(this);
+    let that = this;
+    img.onload = function () {
+      //console.log(that);
+      that.context.drawImage(img, 0, 0);
+    }
+  }*/
   render() {
     const date = this.getValidDate();
 
@@ -188,8 +210,16 @@ export class MyComponent {
                 <span class="disabled">{this.showFillDays ? day : ''}</span>
               );
             } else {
+              let that = this;
               return (
-                <span onClick={() => this.daySelectedHandler(day)}>
+                <span onClick={function(){
+                  
+                  that.daySelectedHandler(day); 
+                  this.setAttribute("id","para-1");
+                  that.loadEvent();
+                  that.saveEvent("Großes Event");
+                
+                }}>
                   <i class={classNameDigit}>
                     {day}
                   </i>
@@ -201,17 +231,7 @@ export class MyComponent {
         </div>
       </div>
       </div>
-      <div class= "scrollFeld">
-        <ul>
-        <li>import kalenderDaten</li>
-        <li>Rein optisch ist diese Variante nicht so schön anzusehen, weil die Scrollbalken auch eingeblendet werden, wenn sie bei ausreichender Div-Größe überhaupt nicht benötigt werden. Außerdem erscheint dabei zusätzlich auch noch ein horizontaler Scrollbalken, der meist überhaupt nicht benötigt wird.</li>
-        <li>Bleibt noch zu beachten, dass die Scrollbar selbst eine Breite von ca. 16px hat und sich um diesen Wert dann die Breite des Inhaltsbereichs verringert.</li>
-        <li></li>
-        <li>und so</li>
-        <li>soll das ganze</li>
-        <li>dann</li>
-        <li>aussehen!</li>
-        </ul>
+      <div class= "scrollFeld" ref={el => (this.eventField = el as HTMLElement)}>
       </div>
       </div>
       </div>
