@@ -142,18 +142,23 @@ export class T2Start {
             </div>
           </div>
           <div class="scrollKreis">
-            <div class="dreieck"></div>
+            <p>scroll</p>
           </div>
         </div>
       );
     } else if (this.pageYOffset >= 20) {
       return (
-        <div class="parentDiv" style={{ width: 'inherit', paddingLeft: '2rem', height: '10rem', top: '0', left: '0' }}>
-          <div class="wrapper" style={{ width: 'inherit', paddingLeft: '2rem', position: 'fixed', top: '0', left: '0', height: '5rem', marginLeft: '8px' }}>
-            <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '0.5rem' }}>
-              {this.date()}
-            </p>
-            {this.displayWeather()}
+        <div class="parentDiv" style={{ width: '375px', height: '5rem', top: '0', left: '0' }}>
+          <div
+            class="wrapper"
+            style={{ width: 'inherit', padding: '0 0 2rem 0', position: 'fixed', top: '0', left: '0', height: '5rem', marginLeft: '8px', borderRadius: '0 0 1rem 1rem' }}
+          >
+            <div style={{ margin: '1rem' }}>
+              <p id="date" style={{ display: 'inline-block', verticalAlign: 'middle', marginTop: '0', marginRight: '0.5rem' }}>
+                {this.date()}
+              </p>
+              {this.displayWeather()}
+            </div>
           </div>
         </div>
       );

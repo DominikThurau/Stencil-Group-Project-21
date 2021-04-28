@@ -8,6 +8,9 @@
 .parentDiv {
   height: 812px;
   position: relative;
+  background-color: #e5edf8;
+  border-radius: 20px;
+  z-index: 10;
 }
 
 p {
@@ -35,7 +38,7 @@ hr {
 .wrapper {
   width: 12rem;
   background-color: #eb8f90;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 1rem;
   padding: 1rem;
   margin: 0 auto;
   z-index: 10;
