@@ -141,7 +141,7 @@ h1 {
   width: 342px;
   height: 60px;
   padding-left: 20px;
-  padding-top: 5px;
+  padding-top: 7px;
   border-radius: 20px;
   font-family: hero-new, sans-serif;
   font-weight: 400;
@@ -166,9 +166,12 @@ h1 {
 .box-privat {
   background-color: #EB8F90;
   margin-top: 85px;
+<<<<<<< HEAD
   height: 40px !important;
 }
 
 .hiddenContent{
   visibility: hidden;
+=======
+>>>>>>> a1bd39fe511fa09e1424c1407c1931c76a0a5b8f
 }
