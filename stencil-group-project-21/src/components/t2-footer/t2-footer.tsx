@@ -8,10 +8,11 @@ shadow: true,
 export class T2Footer {
 
  topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
   }
+
+ 
 
 
 render() {
@@ -48,9 +49,6 @@ return (
             </div>
             <div class="icon-download">
               <slot name="download" />
-            </div>
-            <div class="icon-upload">
-              <slot name="upload" />
             </div>
           </div>
         </div>
