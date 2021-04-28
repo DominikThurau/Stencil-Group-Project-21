@@ -12,6 +12,8 @@ export class T2Footer {
   document.documentElement.scrollTop = 0; 
   }
 
+ 
+
 
 render() {
 return (
@@ -20,7 +22,7 @@ return (
     <div class="platzhalter">leer</div>
     <div class="backgroundcolor-footer">
       <div class="bg-footer">
-      <div class="icon-up" id="icon-up">
+      <div class="icon-up" id="icon-up" onClick={this.topFunction} >
         <div class="up"></div>
               <slot name="up"/>
             </div>
