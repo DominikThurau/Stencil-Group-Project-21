@@ -8,9 +8,8 @@ shadow: true,
 export class T2Footer {
 
  topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
   }
 
 
@@ -21,7 +20,7 @@ return (
     <div class="platzhalter">leer</div>
     <div class="backgroundcolor-footer">
       <div class="bg-footer">
-      <div class="icon-up" id="icon-up" onClick={this.topFunction} >
+      <div class="icon-up" id="icon-up">
         <div class="up"></div>
               <slot name="up"/>
             </div>
@@ -48,9 +47,6 @@ return (
             </div>
             <div class="icon-download">
               <slot name="download" />
-            </div>
-            <div class="icon-upload">
-              <slot name="upload" />
             </div>
           </div>
         </div>
