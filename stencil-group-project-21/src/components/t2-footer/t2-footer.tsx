@@ -7,12 +7,18 @@ shadow: true,
 })
 export class T2Footer {
 
- topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
-  }
+hiddenContent:HTMLDivElement;
 
- 
+toggleContent(){
+this.hiddenContent.classList.toggle("hiddenContent");
+}
+
+topFunction() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+
+
 
 
 render() {
@@ -22,13 +28,15 @@ return (
     <div class="platzhalter">leer</div>
     <div class="backgroundcolor-footer">
       <div class="bg-footer">
-      <div class="icon-up" id="icon-up" onClick={this.topFunction} >
-        <div class="up"></div>
-              <slot name="up"/>
-            </div>
-        <div id="kategorie" class="box-studium">Erbe</div>
-        <div id="kategorie" class="box-arbeit">Kontaktdaten Dozenten</div>
-        <div id="kategorie" class="box-privat">StadtLandFluss Geschichten</div>
+        <div class="icon-up" id="icon-up" onClick={this.toggleContent}>
+          <div class="up"></div>
+          <slot name="up" />
+        </div>
+        <div class="" onClick={this.toggleContent} ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
+          <div id="kategorie" class="box-studium">Erbe</div>
+          <div id="kategorie" class="box-arbeit">Kontaktdaten Dozenten</div>
+          <div id="kategorie" class="box-privat">StadtLandFluss Geschichten</div>
+        </div>
         <div class="content-footer">
           <div class="line">
             <hr>

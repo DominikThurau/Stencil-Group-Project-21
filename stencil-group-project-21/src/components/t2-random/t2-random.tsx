@@ -25,32 +25,31 @@ export class T2Random {
     this.numberOfPeopleFunction = this.numberOfPeopleFunction.bind(this);
 
     this.changePlaceholderEmpty = this.changePlaceholderEmpty.bind(this);
-    this.changePlaceholderKomma = this.changePlaceholderKomma.bind(this);
+    this.changePlaceholderComma = this.changePlaceholderComma.bind(this);
     this.changePlaceholderNewLine = this.changePlaceholderNewLine.bind(this);
   }
 
+  // Platzhaltertext bei Trennmodus Leerzeichen
   changePlaceholderEmpty(){
-    this.nameInput.placeholder = "Empty";
+    this.nameInput.placeholder = "Laura Jonas Domi Tobi Tabea Linda";
   }
+  // Platzhaltertext bei Trennmodus neue Zeile
   changePlaceholderNewLine(){
-    this.nameInput.placeholder = "New Line";
+    this.nameInput.placeholder = "Laura" + '\n' + "Jonas" + '\n' + "Domi" + '\n' + "Tobi" + '\n' + "Tabea" + '\n' + "Linda" ;
   }
-  changePlaceholderKomma(){
-    this.nameInput.placeholder = "Komma";
-  }
-
-  componentDidRender() {
-    console.log(this.nameInput.value);
+  // Platzhaltertext bei Trennmodus Komma
+  changePlaceholderComma(){
+    this.nameInput.placeholder = "Laura, Jonas, Domi, Tobi, Tabea, Linda";
   }
 
   buildGroups() {
     // Abfrage welche Trennmethode ausgewählt wurde
     if (this.spaceSeparate.checked) {
-      this.nameList = this.nameInput.value.split(' '); //Namen durch ein Leerzeichen getrennt
+      this.nameList = this.nameInput.value.split(' '); // Namen durch ein Leerzeichen getrennt
     } else if (this.commaSeparate.checked) {
-      this.nameList = this.nameInput.value.split(', '); //Namen durch Komma und Leerzeichen getrennt
+      this.nameList = this.nameInput.value.split(', '); // Namen durch Komma und Leerzeichen getrennt
     } else if (this.newLineSeparate.checked) {
-      this.nameList = this.nameInput.value.split('\n'); //Namen durch eine neue Zeile getrennt
+      this.nameList = this.nameInput.value.split('\n'); // Namen durch eine neue Zeile getrennt
     }
 
     // Abfrage welcher Modus ausgewählt wurde
@@ -154,7 +153,7 @@ export class T2Random {
                 <label>Leerzeichen</label>
                 <input type="radio" name="getrennt" ref={el => (this.newLineSeparate = el as HTMLInputElement)} onClick={this.changePlaceholderNewLine}/>
                 <label>neue Zeile</label>
-                <input type="radio" name="getrennt" ref={el => (this.commaSeparate = el as HTMLInputElement)} onClick={this.changePlaceholderKomma}/>
+                <input type="radio" name="getrennt" ref={el => (this.commaSeparate = el as HTMLInputElement)} onClick={this.changePlaceholderComma}/>
                 <label>Komma</label>
               </div>
               <h2>Modus:</h2>
