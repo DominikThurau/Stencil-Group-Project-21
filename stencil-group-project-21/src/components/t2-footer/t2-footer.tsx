@@ -16,11 +16,6 @@ toggleContent(){
 this.hiddenContent.classList.toggle("hiddenContent");
 }
 
-topFunction() {
-document.body.scrollTop = 0;
-document.documentElement.scrollTop = 0;
-}
-
 linkfunctionErbe(){
   window.location.href="https://www.dropbox.com/s/sko37yow58fbzh7/_Erbe.zip?dl=0"
 }
