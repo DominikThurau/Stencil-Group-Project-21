@@ -16,12 +16,16 @@ toggleContent(){
 this.hiddenContent.classList.toggle("hiddenContent");
 }
 
-topFunction() {
-document.body.scrollTop = 0;
-document.documentElement.scrollTop = 0;
+linkfunctionErbe(){
+  window.location.href="https://www.dropbox.com/s/sko37yow58fbzh7/_Erbe.zip?dl=0"
 }
 
-
+linkfunctionYoutube(){
+  window.location.href="https://www.youtube.com/user/slfgeschichten"
+}
+linkfunctionUseless(){
+  window.location.href="https://ffffidget.com/"
+}
 
 
 render() {
@@ -36,9 +40,9 @@ return (
           <slot name="up" />
         </div>
         <div class="visibleContent" ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
-          <div id="kategorie" class="box-studium">Erbe</div>
-          <div id="kategorie" class="box-arbeit">Kontaktdaten Dozenten</div>
-          <div id="kategorie" class="box-privat">StadtLandFluss Geschichten</div>
+          <div id="kategorie" class="box-erbe" onClick={this.linkfunctionErbe}>Erbe</div>
+          <div id="kategorie" class="box-youtube" onClick={this.linkfunctionYoutube}>StadtLandFluss Geschichten</div>
+          <div id="kategorie" class="box-useless" onClick={this.linkfunctionUseless}>Zeitvertreib</div>
         </div>
         <div class="content-footer">
           <div class="line">
