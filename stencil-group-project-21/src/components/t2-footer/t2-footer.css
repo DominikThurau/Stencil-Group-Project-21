@@ -151,21 +151,36 @@ h1 {
   right: 0;
 }
 
-.box-studium {
+.box-erbe {
   background-color: #adbed2;
   margin-top: 20px;
+  cursor: pointer;
 }
 
-.box-arbeit {
+.box-youtube {
   background-color: #ffb471;
   margin-top: 50px;
+  cursor: pointer;
 }
 
-.box-privat {
+.box-useless {
   background-color: #eb8f90;
   margin-top: 85px;
   height: 40px !important;
+  cursor: pointer;
 }
+
+.box-erbe:hover{
+  box-shadow: 0 0 20px #979caf;
+}
+.box-youtube:hover{
+  box-shadow: 0 0 20px #979caf;
+}
+.box-useless:hover{
+  box-shadow: 0 0 20px #979caf;
+}
+
+
 
 .visibleContent {
   height: 200px;
