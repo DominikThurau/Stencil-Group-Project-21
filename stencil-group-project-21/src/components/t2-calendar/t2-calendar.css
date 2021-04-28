@@ -29,7 +29,7 @@ h1 {
 
 #calender-material {
   width: 100%;
-  margin: 0 0 0 20px;
+  margin: 30px 0 0 20px;
 }
 
 #calender-display {
@@ -144,16 +144,43 @@ header {
   left: 1.1rem;
 }
 
-.scrollFeld{
-  margin: 15px 0 0 25px;
+.inputKalenderWrapper{
+  margin: 25px 0 33px 0;
+}
+
+#nameEventField{
+  font-family: hero-new, sans-serif;
+  border: 1px solid #eb8f90;
+  padding: 5px;
+  font-size: 10pt;
+  margin-right: 5px;
+  cursor: auto;
+}
+
+#InputButton{
+  font-family: hero-new, sans-serif;
+  border: none;
+  border-radius: 5px;
+  background-color: #eb8f90;
+  color: white;
+  font-size: 10pt;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+.scrollField{
+  font-family: hero-new, sans-serif;
+  margin: 0 0 0 15px;
   text-align: left;
   background: white;
-  height: 50px;
+  height: 90px;
   overflow: scroll;
   width: 84%;
-  border: 1px solid #FFB471;
-  padding: 5px 5px 0 0;
+  border: solid 3px #ADBED2;
+  border-radius: 15px;
+  padding: 5px 10px 10px 10px;
   font-size: 10pt;
+  cursor: context-menu;
 }
 ul{
   margin: 0 auto;

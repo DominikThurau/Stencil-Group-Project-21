@@ -39,7 +39,7 @@ export class MyComponent {
   private fillStartCount: number;
   private fillEndCount: number;
   readonly today: CalendarEntry;
-  eventField: HTMLElement;
+  loadEventField: HTMLElement;
   nameEventField: HTMLInputElement;
 
   constructor() {
@@ -162,25 +162,16 @@ export class MyComponent {
   }
 
   saveEvent() {
-    //console.log("saved");
+
     let event = this.nameEventField.value;
     localStorage.setItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year, event);
+    this.nameEventField.value = "";
   }
 
   loadEvent() {
-    this.eventField.innerText = localStorage.getItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year + ": " + this.nameEventField.value);
+    this.loadEventField.innerText = localStorage.getItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year);
   }
-  /*loadCanvas() {
-    let dataURL = localStorage.getItem("canvas");
-    let img = new Image;
-    img.src = dataURL;
-    this.setEraser = this.setEraser.bind(this);
-    let that = this;
-    img.onload = function () {
-      //console.log(that);
-      that.context.drawImage(img, 0, 0);
-    }
-  }*/
+
   render() {
     const date = this.getValidDate();
 
@@ -219,8 +210,8 @@ export class MyComponent {
                   that.daySelectedHandler(day); 
                   this.setAttribute("id","para-1");
                   that.loadEvent();
-                  that.saveEvent();
-                
+
+
                 }}>
                   <i class={classNameDigit}>
                     {day}
@@ -233,11 +224,11 @@ export class MyComponent {
         </div>
       </div>
       </div>
-      <div class= "inputKalender">
-      <input id="nameEvent" placeholder="Name des Events" ref={el => (this.nameEventField = el as HTMLInputElement)}></input>
-      <button id="eintragen" onClick={this.saveEvent}>eintragen</button>
+      <div class= "inputKalenderWrapper">
+        <input id="nameEventField" placeholder="Name des Events" ref={el => (this.nameEventField = el as HTMLInputElement)}></input>
+        <button id="InputButton" onClick={this.saveEvent}>eintragen</button>
       </div>
-      <div class= "scrollFeld" ref={el => (this.eventField = el as HTMLElement)}>
+      <div class= "scrollField" ref={el => (this.loadEventField = el as HTMLElement)}>
       </div>
       </div>
     );
