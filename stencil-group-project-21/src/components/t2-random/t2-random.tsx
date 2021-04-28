@@ -141,7 +141,6 @@ export class T2Random {
       <Host>
         <div>
           <h1>Zufallsgenerator Gruppen</h1>
-          <div class="platzhalter">leer</div>
           <div class="backgroundcolor-random">
             <h2>Alle Namen:</h2>
             <div>

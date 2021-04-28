@@ -12,11 +12,6 @@ h1 {
   display: inline;
 }
 
-.platzhalter {
-  color: white;
-  padding-bottom: 10px;
-}
-
 .backgroundcolor-todo {
   background-color: #e5edf8;
   width: 100%;
@@ -84,7 +79,6 @@ h1 {
 
 .hinzufuegen {
   margin-top: 10px;
-  margin-left: 10px;
   width: 342px;
   height: 80px;
   border-radius: 10px;
@@ -97,12 +91,11 @@ h1 {
   font-size: 15px;
   height: 30px;
   width: 100px;
-  margin-left: 130px;
   background-color: #eb8f90;
   color: white;
   margin-top: 5px;
-  border-radius: 20px;
-  border-color: #707070;
+  border-radius: 5px;
+  border-style: none;
 }
 
 .card-wrapper{

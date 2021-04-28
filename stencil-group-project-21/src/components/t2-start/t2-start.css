@@ -33,7 +33,7 @@ hr {
 }
 
 .wrapper {
-  width: 12rem;
+  width: 327px !important;
   background-color: #eb8f90;
   border-radius: 0 0 1rem 1rem;
   padding: 1rem;

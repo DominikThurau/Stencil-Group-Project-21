@@ -43,7 +43,6 @@ export class T2Todo {
       <Host>
         <div class="container">
           <h1>Meine To-Do's</h1>
-          <div class="platzhalter">leer</div>
           <div class="backgroundcolor-todo">
             <div class="card-wrapper" >
               <div id="kategorie" class="box-studium look">

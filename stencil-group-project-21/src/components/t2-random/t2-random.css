@@ -16,19 +16,12 @@ h2{
   font-family: hero-new, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  padding-left: 20px;
 }
 
 .textfeld-namen{
   width: 330px;
   height: 135px;
-  margin-left: 17px;
   resize: none;
-}
-
-.platzhalter {
-  color: white;
-  padding-bottom: 10px;
 }
 
 .backgroundcolor-random {
@@ -80,7 +73,6 @@ h2{
   font-size: 15px;
   height: 60px;
   width: 270px;
-  margin-left: 49px;
   background-color: #eb8f90;
   color: white;
   margin-top: 40px;
