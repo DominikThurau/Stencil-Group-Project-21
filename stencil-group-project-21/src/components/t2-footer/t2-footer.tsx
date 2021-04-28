@@ -6,6 +6,9 @@ styleUrls: ['t2-footer.css', '../../assets/fontawesome/css/all.css'],
 shadow: true,
 })
 export class T2Footer {
+  constructor() {
+    this.toggleContent = this.toggleContent.bind(this);
+  }
 
 hiddenContent:HTMLDivElement;
 
@@ -32,7 +35,7 @@ return (
           <div class="up"></div>
           <slot name="up" />
         </div>
-        <div class="" onClick={this.toggleContent} ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
+        <div class="visibleContent" ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
           <div id="kategorie" class="box-studium">Erbe</div>
           <div id="kategorie" class="box-arbeit">Kontaktdaten Dozenten</div>
           <div id="kategorie" class="box-privat">StadtLandFluss Geschichten</div>
