@@ -1,7 +1,7 @@
 :host {
   display: block;
   width: 375px;
-  position:fixed;
+  position: fixed;
   bottom: 0px;
 }
 
@@ -40,9 +40,9 @@ h1 {
 }
 
 .bg-footer {
-  background-color: #12406A;
+  background-color: #12406a;
   width: 375px;
-  
+
   padding-top: 1%;
   border-radius: 1rem 1rem 0 0;
 
@@ -126,7 +126,6 @@ h1 {
   z-index: -1;
 }
 
-
 .line {
   border-top-color: #bbb;
   width: 97%;
@@ -153,25 +152,25 @@ h1 {
 }
 
 .box-studium {
-  background-color: #ADBED2;
+  background-color: #adbed2;
   margin-top: 20px;
 }
 
 .box-arbeit {
-  background-color: #FFB471;
+  background-color: #ffb471;
   margin-top: 50px;
 }
 
 .box-privat {
-  background-color: #EB8F90;
+  background-color: #eb8f90;
   margin-top: 85px;
   height: 40px !important;
 }
 
-.visibleContent{
+.visibleContent {
   height: 200px;
 }
-.hiddenContent{
+.hiddenContent {
   height: 50px;
   visibility: hidden;
 }
