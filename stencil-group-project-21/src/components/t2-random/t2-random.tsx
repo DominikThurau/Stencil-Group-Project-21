@@ -145,7 +145,7 @@ export class T2Random {
           <div class="backgroundcolor-random">
             <h2>Alle Namen:</h2>
             <div>
-              <textarea class="textfeld-namen" placeholder="Laura Linda Dominik Tobi Tabea Jonas" ref={el => (this.nameInput = el as HTMLTextAreaElement)}></textarea>
+              <textarea class="textfeld-namen" placeholder="Laura Jonas Domi Tobi Tabea Linda" ref={el => (this.nameInput = el as HTMLTextAreaElement)}></textarea>
               <br></br>
               <h2>Namen werden getrennt durch:</h2>
               <div class="trennzeichen">
