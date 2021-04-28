@@ -78,17 +78,23 @@ h2{
   font-family: hero-new, sans-serif;
   font-weight: 400;
   font-size: 15px;
-  height: 50px;
-  width: 250px;
-  margin-left: 55px;
+  height: 60px;
+  width: 270px;
+  margin-left: 49px;
   background-color: #eb8f90;
   color: white;
   margin-top: 40px;
-  border-color: #707070;
+  border-style: none;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+
+.zufallsbutton:hover{
+  opacity: 1;
 }
 
 .zufallsbutton:focus{
-  box-shadow:rgba(70,70,70,0.7) 0px 5px 15px;
+  box-shadow:rgba(0, 0, 0, 0.7) 0px 5px 15px;
 }
 
 .kreis {
