@@ -56,7 +56,7 @@ export class T2Start {
     if (this.pageYOffset == 0 || this.pageYOffset < 20) {
       return <img src={imgUrl}></img>;
     } else {
-      return <img src={imgUrl} style={{ width: '6rem', height: '6rem', verticalAlign: 'middle', marginRight: '-0.5rem' }}></img>;
+      return <img src={imgUrl} style={{ width: '6rem', height: '6rem', verticalAlign: 'middle', margin: '-0.5rem' }}></img>;
     }
   }
 
