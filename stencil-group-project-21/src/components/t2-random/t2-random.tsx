@@ -6,6 +6,7 @@ import { Component, Host, h } from '@stencil/core';
   styleUrl: 't2-random.css',
   shadow: true,
 })
+
 export class T2Random {
   nameInput: HTMLTextAreaElement;
   nameList;
@@ -22,6 +23,20 @@ export class T2Random {
     this.buildGroups = this.buildGroups.bind(this);
     this.groupBuilderFunction = this.groupBuilderFunction.bind(this);
     this.numberOfPeopleFunction = this.numberOfPeopleFunction.bind(this);
+
+    this.changePlaceholderEmpty = this.changePlaceholderEmpty.bind(this);
+    this.changePlaceholderKomma = this.changePlaceholderKomma.bind(this);
+    this.changePlaceholderNewLine = this.changePlaceholderNewLine.bind(this);
+  }
+
+  changePlaceholderEmpty(){
+    this.nameInput.placeholder = "Empty";
+  }
+  changePlaceholderNewLine(){
+    this.nameInput.placeholder = "New Line";
+  }
+  changePlaceholderKomma(){
+    this.nameInput.placeholder = "Komma";
   }
 
   componentDidRender() {
@@ -135,11 +150,11 @@ export class T2Random {
               <br></br>
               <h2>Namen werden getrennt durch:</h2>
               <div class="trennzeichen">
-                <input type="radio" name="getrennt" checked ref={el => (this.spaceSeparate = el as HTMLInputElement)} />
+                <input type="radio" name="getrennt" checked ref={el => (this.spaceSeparate = el as HTMLInputElement)} onClick={this.changePlaceholderEmpty}/>
                 <label>Leerzeichen</label>
-                <input type="radio" name="getrennt" ref={el => (this.newLineSeparate = el as HTMLInputElement)} />
+                <input type="radio" name="getrennt" ref={el => (this.newLineSeparate = el as HTMLInputElement)} onClick={this.changePlaceholderNewLine}/>
                 <label>neue Zeile</label>
-                <input type="radio" name="getrennt" ref={el => (this.commaSeparate = el as HTMLInputElement)} />
+                <input type="radio" name="getrennt" ref={el => (this.commaSeparate = el as HTMLInputElement)} onClick={this.changePlaceholderKomma}/>
                 <label>Komma</label>
               </div>
               <h2>Modus:</h2>
