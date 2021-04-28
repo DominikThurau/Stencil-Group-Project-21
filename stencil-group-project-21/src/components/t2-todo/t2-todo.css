@@ -119,4 +119,5 @@ h1 {
   font-size: 35px;
   text-align: center;
   margin-top: 10px;
+  z-index: 1;
 }
