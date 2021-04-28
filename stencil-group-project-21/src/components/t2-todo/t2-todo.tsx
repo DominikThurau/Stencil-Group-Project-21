@@ -5,6 +5,7 @@ import { Component, Host, h } from '@stencil/core';
   styleUrl: 't2-todo.css',
   shadow: true,
 })
+
 export class T2Todo {
   taskInputField: HTMLTextAreaElement;
 
@@ -27,13 +28,13 @@ export class T2Todo {
     //Input
     task = this.taskInputField.value;
     if (this.studiumCheckBox.checked) {
-      this.studiumContent.innerText += '- ' + task + '\n';
+      this.studiumContent.innerHTML += '- ' + task + '\n';
     } else if (this.arbeitCheckBox.checked) {
-      this.arbeitContent.innerText += '- ' + task + '\n';
+      this.arbeitContent.innerHTML += '- ' + task + '\n';
     } else if (this.privatCheckBox.checked) {
-      this.privatContent.innerText += '- ' + task + '\n';
+      this.privatContent.innerHTML += '- ' + task + '\n';
     } else {
-      this.notizenContent.innerText += '- ' + task + '\n';
+      this.notizenContent.innerHTML += '- ' + task + '\n';
     }
   }
 

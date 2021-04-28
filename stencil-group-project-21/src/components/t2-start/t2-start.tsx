@@ -24,9 +24,6 @@ export class T2Start {
     return updated != old;
   }
 
-  /*
-  Abrufen der API-Daten orientiert an URL: https://www.youtube.com/watch?v=uxf0--uiX0I&t=692s
-  */
   componentWillLoad() {
     this.getWeather();
   }
@@ -186,14 +183,6 @@ export class T2Start {
     }
   }
 
-  /*
-  shrinkArea() {
-    this.element.getElementsByTagName('time').
-    this.element.getElementById('time').style.display = 'none';
-    this.element.getElementById('weatherText').style.display = 'none';
-    this.element.getElementById('seperator').style.display = 'none';
-  }*/
-
   render() {
     return (
       <Host>
@@ -207,11 +196,3 @@ class WorldDay {
   month: number;
   title: string;
 }
-
-/*
-class Weather {
-  weather: [any];
-  main: object;
-  name: string;
-}
-*/

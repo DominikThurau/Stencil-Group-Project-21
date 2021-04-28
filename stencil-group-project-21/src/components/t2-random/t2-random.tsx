@@ -1,3 +1,4 @@
+// Das ist die Komponente des Zufalls-Gruppengenerators von Linda Schäfer
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
@@ -5,6 +6,7 @@ import { Component, Host, h } from '@stencil/core';
   styleUrl: 't2-random.css',
   shadow: true,
 })
+
 export class T2Random {
   nameInput:HTMLTextAreaElement;
   nameList;
@@ -28,35 +30,43 @@ export class T2Random {
   }
   
   buildGroups(){
-    //Abfrage welches Trennmethode ausgewählt wurde
+
+    // Abfrage welche Trennmethode ausgewählt wurde
     if(this.spaceSeparate.checked){
-      this.nameList = this.nameInput.value.split(' ');  //Namen durch ein Leerzeichen getrennt      
+      this.nameList = this.nameInput.value.split(' ');  //Namen durch ein Leerzeichen getrennt  
+
     } else if(this.commaSeparate.checked){
-      this.nameList = this.nameInput.value.split(', '); //Namen durch Komma und Leerzeichen getrennt      
+      this.nameList = this.nameInput.value.split(', '); //Namen durch Komma und Leerzeichen getrennt  
+
     }else if(this.newLineSeparate.checked){
       this.nameList = this.nameInput.value.split('\n'); //Namen durch eine neue Zeile getrennt      
     }
     
-    //Abfrage welcher Modus ausgewählt wurde
+    // Abfrage welcher Modus ausgewählt wurde
     if(this.groupBuilder.checked){
       this.groupBuilderFunction();    //Modus 1
+
     } else{
       this.numberOfPeopleFunction();  //Modus 2
     }
   }
-  //Modus 1: Bilde ... Gruppen
+  
+  // Modus 1: Bilde ... Gruppen
   groupBuilderFunction(){
     let groups: String = "";
     let shuffledList = this.nameList.sort(() => Math.random() - 0.5);    
     let index = 0;
     for(let i = 0; i < parseInt(this.groupCount.value); i++){
       groups += "Gruppe " + (i + 1) + ":" + "\n";
-      //Rechnung Personen pro Gruppe
+
+      // Rechnung Personen pro Gruppe
       let groupmembers;
-      //Personenanzahl geht in den Gruppen nicht auf
+
+      // Personenanzahl geht in den Gruppen nicht auf
       if((shuffledList.length - index) % (parseInt(this.groupCount.value) - i)!=0){
         groupmembers = (shuffledList.length - index) / (parseInt(this.groupCount.value) - i);
-        //Personenanzahl geht in den Gruppen genau auf
+
+      // Personenanzahl geht in den Gruppen genau auf
       } else{
         groupmembers = Math.round(shuffledList.length - index) / (parseInt(this.groupCount.value) - i);
       }      
@@ -73,21 +83,25 @@ export class T2Random {
     alert(groups);
   }
 
-//Modus 2: Bilde Gruppen mit ... Personen
+  // Modus 2: Bilde Gruppen mit ... Personen
   numberOfPeopleFunction(){
     let people: String = "";
     let shuffledList = this.nameList.sort(() => Math.random() - 0.5);    
     let index = 0;
-    //Wie viele Gruppen müssen gebildet werden?
+
+    // Wie viele Gruppen müssen gebildet werden?
     let sumGroups = shuffledList.length / parseInt(this.peopleCount.value);
     for(let i = 0; i < sumGroups; i++){
       people += "Gruppe " + (i + 1) + ":" + "\n";
-      //Rechnung Namen pro Gruppe
+
+      // Rechnung Personen pro Gruppe
       let peoplemembers
-      //Personenanzahl geht bei der Anzahl der eingegebenen Namen nicht auf
+
+      // Personenanzahl geht bei der Anzahl der eingegebenen Namen nicht auf
       if((shuffledList.length - index) % (sumGroups - i)!=0){
         peoplemembers = (shuffledList.length - index) / (sumGroups - i);
-      //Personenanzahl geht bei der Anzahl der eingegebenen Namen auf
+
+      // Personenanzahl geht bei der Anzahl der eingegebenen Namen auf
       } else{
         peoplemembers = Math.round(shuffledList.length - index) / (sumGroups - i);
       }      
