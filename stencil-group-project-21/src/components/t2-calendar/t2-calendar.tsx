@@ -231,7 +231,6 @@ export class MyComponent {
       <div class= "scrollField" ref={el => (this.loadEventField = el as HTMLElement)}>
       </div>
       </div>
-    );
     </div>
     )};
 }
