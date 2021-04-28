@@ -132,12 +132,3 @@ h2{
   height: 15px;
   margin-top: 25px;
 }
-
-.icon-up {
-  background-color: none;
-  color: white;
-  font-size: 35px;
-  text-align: center;
-  margin-top: 100px;
-  z-index: 1;
-}

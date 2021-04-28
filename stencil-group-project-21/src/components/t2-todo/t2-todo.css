@@ -112,12 +112,3 @@ h1 {
   height: 450px;
   overflow: hidden;
 }
-
-.icon-up {
-  background-color: none;
-  color: white;
-  font-size: 35px;
-  text-align: center;
-  margin-top: 20px;
-  z-index: 1;
-}

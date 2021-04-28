@@ -171,9 +171,6 @@ export class T2Random {
             <button type="button" class="zufallsbutton" onClick={this.buildGroups}>
               Lass den Zufall entscheiden
             </button>
-            <div class="icon-up">
-              <slot name="up" />
-            </div>
           </div>
         </div>
       </Host>
