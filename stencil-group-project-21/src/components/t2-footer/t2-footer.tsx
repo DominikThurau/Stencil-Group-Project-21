@@ -17,7 +17,7 @@ this.hiddenContent.classList.toggle("hiddenContent");
 }
 
 linkfunctionErbe(){
-  window.location.href="https://www.dropbox.com/s/sko37yow58fbzh7/_Erbe.zip?dl=0"
+  window.location.href="https://vorlesung.dhbw.slezak-it.de/vorlesung/"
 }
 
 linkfunctionYoutube(){
@@ -40,7 +40,7 @@ return (
           <slot name="up" />
         </div>
         <div class="visibleContent" ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
-          <div id="kategorie" class="box-erbe" onClick={this.linkfunctionErbe}>Erbe</div>
+          <div id="kategorie" class="box-js" onClick={this.linkfunctionErbe}>JavaSript-Basics</div>
           <div id="kategorie" class="box-youtube" onClick={this.linkfunctionYoutube}>StadtLandFluss Geschichten</div>
           <div id="kategorie" class="box-useless" onClick={this.linkfunctionUseless}>Zeitvertreib</div>
         </div>

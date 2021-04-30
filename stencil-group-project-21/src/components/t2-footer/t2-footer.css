@@ -151,7 +151,7 @@ h1 {
   right: 0;
 }
 
-.box-erbe {
+.box-js {
   background-color: #adbed2;
   margin-top: 20px;
   cursor: pointer;
@@ -170,7 +170,7 @@ h1 {
   cursor: pointer;
 }
 
-.box-erbe:hover{
+.box-js:hover{
   box-shadow: 0 0 20px #979caf;
 }
 .box-youtube:hover{
@@ -179,8 +179,6 @@ h1 {
 .box-useless:hover{
   box-shadow: 0 0 20px #979caf;
 }
-
-
 
 .visibleContent {
   height: 200px;
