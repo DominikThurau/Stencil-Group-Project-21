@@ -148,7 +148,7 @@ export class T2Start {
       );
     } else if (this.pageYOffset >= 20) {
       return (
-        <div class="parentDiv" style={{ width: '375px', height: '5rem', top: '0', left: '0' }}>
+        <div class="parentDiv" style={{ height: '5rem', top: '0', left: '0' }}>
           <div
             class="wrapper"
             style={{ width: 'inherit', padding: '0 0 2rem 0', position: 'fixed', top: '0', left: '0', height: '5rem', marginLeft: '8px', borderRadius: '0 0 1rem 1rem' }}
