@@ -178,7 +178,7 @@ export class T2Start {
       );
     } else if (this.pageYOffset >= 20) {
       return (
-        <div class="parentDiv" style={{ height: '112px', top: '0', left: '0', paddingBottom: '19px', animationName: 'changeParentDiv', animationDuration: '1.2s' }}>
+        <div class="parentDiv" style={{ height: '112px', top: '0', left: '0', marginBottom: '19px', animationName: 'changeParentDiv', animationDuration: '1.2s' }}>
           {this.changeBackground()}
           <div
             class="wrapper"
