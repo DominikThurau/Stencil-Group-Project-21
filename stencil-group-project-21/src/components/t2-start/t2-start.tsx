@@ -189,7 +189,6 @@ export class T2Start {
               top: '0',
               left: '0',
               height: '80px',
-              margin: '0 0 0 8px',
               borderRadius: '0 0 1rem 1rem',
               animationName: 'changeWrapper',
               animationDuration: '1.5s',
