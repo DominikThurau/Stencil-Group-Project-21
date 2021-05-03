@@ -44,7 +44,7 @@ return (
           <div class="up"></div>
           <slot name="up" />
         </div>
-        <div class="visibleContent" ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
+        <div class="visibleContent hiddenContent" ref={el=> (this.hiddenContent = el as HTMLDivElement)}>
           <div id="kategorie" class="box-js" onClick={this.linkfunctionErbe}>JavaSript-Basics</div>
           <div id="kategorie" class="box-youtube" onClick={this.linkfunctionYoutube}>StadtLandFluss Geschichten</div>
           <div id="kategorie" class="box-useless" onClick={this.linkfunctionUseless}>Zeitvertreib</div>
