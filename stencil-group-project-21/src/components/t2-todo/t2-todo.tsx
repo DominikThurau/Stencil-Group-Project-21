@@ -43,7 +43,6 @@ export class T2Todo {
       <Host>
         <div class="container">
           <h1>Meine To-Do's</h1>
-          <div class="platzhalter">leer</div>
           <div class="backgroundcolor-todo">
             <div class="card-wrapper" >
               <div id="kategorie" class="box-studium look">
@@ -78,9 +77,6 @@ export class T2Todo {
             <button type="button" class="button-hinzu" onClick={this.addTask}>
               Hinzufügen
             </button>
-            <div class="icon-up">
-              <slot name="up" />
-            </div>
           </div>
           <slot></slot>
         </div>

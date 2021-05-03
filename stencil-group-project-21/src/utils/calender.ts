@@ -1,3 +1,4 @@
+// für die richtige Darstellung des Kalender je nach Anzahl der Tag pro Monat so wie den entsprechenden Wochentagen
 import { CalendarEntry } from './calendar-entry';
 
 export class Calendar {

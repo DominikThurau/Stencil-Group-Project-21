@@ -12,9 +12,13 @@
   </head>
   <body>
     <t2-start id="start-screen"></t2-start>
+    <div style="background-color: #e5edf8;
+    width: 375px;
+    height: auto;
+    margin-top: 10px;
+    text-align: center;">
     <t2-calendar></t2-calendar>
     <t2-todo>
-      <i class="fas fa-chevron-circle-up" slot="up"></i>
     </t2-todo>
     <t2-canvas>
       <i class="fas fa-broom fa-lg" slot="brush"></i>
@@ -24,16 +28,16 @@
       <i class="fas fa-trash fa-lg" slot="clear"></i>
     </t2-canvas>
     <t2-random>
-      <i class="fas fa-chevron-circle-up" slot="up"></i>
     </t2-random>
     <t2-footer>
-      <i class="fas fa-chevron-circle-up" slot="up"></i>
+      <i class="fas fa-chevron-circle-up" slot="up" style="cursor: pointer;"></i>
       <a i class="fab fa-instagram" slot="instagram" href="https://www.instagram.com/stuv.mosbach.dhbw/" style="text-decoration:none; color: white;"></i></a>
-      <a i class="fab fa-github" slot="github" href="https://github.com/MysterieDev" style="text-decoration:none; color: white;"></i></a>
+      <a i class="fab fa-github" slot="github" href="https://github.com/DominikThurau/Stencil-Group-Project-21" style="text-decoration:none; color: white;"></i></a>
       <a i class="fas fa-graduation-cap" slot="moodle"href="https://www.intern.mosbach.dhbw.de/action/status" style="text-decoration:none; color: white;"></i></a>
       <a i class="fas fa-calendar-week" slot="calendar" href="https://www.intern.mosbach.dhbw.de/complain/action/index?course=ON" style="text-decoration:none; color: white;"></i></a>></i>
       <a  slot="download" href="assets/pdf/onlinemedianer.pdf" download><i class="fas fa-download" style="text-decoration:none; color: white;"></i></a>
       <i class="fas fa-upload" slot="upload"></i>
     </t2-footer>
+  </div>
   </body>
 </html>

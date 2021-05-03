@@ -10,6 +10,7 @@ import { Calendar } from '../../utils/calender';
 })
 
 export class MyComponent {
+  //Properies definieren um später abzurufen
   @Prop() dayNames = [
     'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'
   ];
@@ -18,11 +19,13 @@ export class MyComponent {
   ];
   @Prop() showFillDays = true;
 
+  //damit immer wieder entsprechend gerendert wird nach Änderung der Variablen
   @State() date = Calendar.getToday();
   @State() daysInMonth: number[];
   @State() selectedDate: CalendarEntry;
   @State() eventDates = [];
 
+  //werden getriggert wenn sich Tag oder Monat ändern
   @Event({
     eventName: 'dayChanged',
     composed: true,
@@ -46,6 +49,7 @@ export class MyComponent {
     this.today = Calendar.getToday();
   }
 
+  //für das Styling des ausgewählten Tages
   @Watch('date')
   watchDate(date: CalendarEntry): void {
     if ('month' in date && 'year' in date) {
@@ -53,11 +57,13 @@ export class MyComponent {
     }
   }
 
+  //Lifecycle methode: Rahmen für die Initialisierung des Kalenders
   componentWillLoad() {
     this.saveEvent = this.saveEvent.bind(this);
     this.setCalendarDetails();
   }
 
+  //baut den Kalender
   setCalendarDetails(): void {
     const date = this.getValidDate();
     const calendar = new Calendar(date.year, date.month);
@@ -67,6 +73,7 @@ export class MyComponent {
     this.fillEndCount = (calendar.daysInCalendar - calendar.getFillEndCount());
   }
 
+  // sortiert die Monate entsprechend der Jahre
   getValidDate(): CalendarEntry {
     let date = this.date;
     if (!('month' in this.date && 'year' in this.date)) {
@@ -93,6 +100,7 @@ export class MyComponent {
     this.monthChanged.emit(calendarEntry);
   }
 
+  //ermöglicht das Wechseln zwischen den einzelnen Monaten (zurück bzw vor)
   switchToPreviousMonth = (): void => {
     if (this.date.month !== 1) {
       this.date.month -= 1;
@@ -123,6 +131,7 @@ export class MyComponent {
     this.monthChangedHandler(this.date);
   }
 
+  //ruft entsprechende Stylings auf
   getDigitClassNames = (day: number, month: number, year: number, index: number): string => {
     let classNameDigit = [];
     if (day.toString().length === 1) {
@@ -144,6 +153,7 @@ export class MyComponent {
     return classNameDigit.join(' ');
   }
 
+  // findet den aktuellen Tag & styled diesen
   isToday(day: number, month: number, year: number, index: number): boolean {
     return this.today.day === day
       && this.today.month === month
@@ -161,6 +171,7 @@ export class MyComponent {
       && !(index < this.fillStartCount || index >= this.fillEndCount);
   }
 
+  // Funktion zur Speicherung eines Termins
   saveEvent() {
 
     let event = this.nameEventField.value;
@@ -168,10 +179,12 @@ export class MyComponent {
     this.nameEventField.value = "";
   }
 
+  // Funktion die die entsprechenden eingetragenen Termine aus dem local storage läd und im Feld ausgibt
   loadEvent() {
     this.loadEventField.innerText = localStorage.getItem(this.selectedDate.day + "." + this.selectedDate.month + "." + this.selectedDate.year);
   }
 
+  // HTML Struktur
   render() {
     const date = this.getValidDate();
 
