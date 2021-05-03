@@ -28,89 +28,97 @@ export class T2Canvas {
     this.clearCanvas = this.clearCanvas.bind(this);
 
     this.coord = { x: 0, y: 0 };
-    this.pencilColors = ['#FFAEBC', '#A0E7E5', '#B4F8C8', '#FBE7C6'];
-    switch(localStorage.getItem("color")) { 
-      case "blue": { 
-         this.pencilIndex = 1;
-         break; 
-      } 
-      case "mint": { 
+    this.pencilColors = ['black', '#FFAEBC', '#A0E7E5', '#B4F8C8', '#FBE7C6'];
+    switch (localStorage.getItem('color')) {
+      case 'pink': {
+        this.pencilIndex = 1;
+        break;
+      }
+      case 'blue': {
         this.pencilIndex = 2;
-         break; 
-      } 
-      case "yellow": { 
+        break;
+      }
+      case 'mint': {
         this.pencilIndex = 3;
-        break; 
-     } 
-      default: { 
+        break;
+      }
+      case 'yellow': {
+        this.pencilIndex = 4;
+        break;
+      }
+      default: {
         this.pencilIndex = 0;
-         break; 
-      } 
-   } 
-   if(localStorage.getItem("mode")=="Eraser"){
-    this.context.strokeStyle = 'white';
-   }else{
-    this.context.strokeStyle = this.pencilColors[this.pencilIndex];
-   }
-    
-    this.context.lineWidth = parseInt(localStorage.getItem("width"));
-    this.brushSize = parseInt(localStorage.getItem("width"));
+        break;
+      }
+    }
+    if (localStorage.getItem('mode') == 'Eraser') {
+      this.context.strokeStyle = 'white';
+    } else {
+      this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+    }
+
+    this.context.lineWidth = parseInt(localStorage.getItem('width'));
+    this.brushSize = parseInt(localStorage.getItem('width'));
   }
 
   saveCanvas() {
     //console.log("saved");
-    localStorage.setItem("canvas", this.canvas.toDataURL());
+    localStorage.setItem('canvas', this.canvas.toDataURL());
   }
 
   loadCanvas() {
-    let dataURL = localStorage.getItem("canvas");
-    let img = new Image;
+    let dataURL = localStorage.getItem('canvas');
+    let img = new Image();
     img.src = dataURL;
     this.setEraser = this.setEraser.bind(this);
     let that = this;
     img.onload = function () {
       //console.log(that);
       that.context.drawImage(img, 0, 0);
-    }
-    switch(localStorage.getItem("color")) { 
-      case "blue": { 
-         this.pencilIndex = 1;
-         break; 
-      } 
-      case "mint": { 
+    };
+    switch (localStorage.getItem('color')) {
+      case 'pink': {
+        this.pencilIndex = 1;
+        break;
+      }
+      case 'blue': {
         this.pencilIndex = 2;
-         break; 
-      } 
-      case "yellow": { 
+        break;
+      }
+      case 'mint': {
         this.pencilIndex = 3;
-        break; 
-     } 
-      default: { 
+        break;
+      }
+      case 'yellow': {
+        this.pencilIndex = 4;
+        break;
+      }
+      default: {
         this.pencilIndex = 0;
-         break; 
-      } 
-   } 
-   if(localStorage.getItem("mode")=="Eraser"){
-    this.context.strokeStyle = 'white';
-   }else{
-    this.context.strokeStyle = this.pencilColors[this.pencilIndex];
-   }
-    this.context.lineWidth = parseInt(localStorage.getItem("width"));
-    this.modeView.innerHTML = '<b>Mode: </b> ' + localStorage.getItem("mode");
-    this.colorView.innerHTML = '<b>Color: </b> ' + localStorage.getItem("color");
-    this.widthView.innerHTML = '<b>Width: </b> ' + parseInt(localStorage.getItem("width"));
+        break;
+      }
+    }
+    if (localStorage.getItem('mode') == 'Eraser') {
+      this.context.strokeStyle = 'white';
+    } else {
+      this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+    }
+    this.context.lineWidth = parseInt(localStorage.getItem('width'));
+    this.modeView.innerHTML = '<b>Mode: </b> ' + localStorage.getItem('mode');
+    this.colorView.innerHTML = '<b>Color: </b> ' + localStorage.getItem('color');
+    this.widthView.innerHTML = '<b>Width: </b> ' + parseInt(localStorage.getItem('width'));
   }
 
   setPencil() {
     this.context.strokeStyle = this.pencilColors[this.pencilIndex];
-    localStorage.setItem("mode", "Pencil")
-    this.modeView.innerHTML = '<b>Mode: </b>' + localStorage.getItem("mode");
+    localStorage.setItem('mode', 'Pencil');
+    this.modeView.innerHTML = '<b>Mode: </b>' + localStorage.getItem('mode');
   }
 
   setEraser() {
     this.context.strokeStyle = 'white';
-    localStorage.setItem("mode", "Eraser")
-    this.modeView.innerHTML = '<b>Mode: </b>' + localStorage.getItem("mode");
+    localStorage.setItem('mode', 'Eraser');
+    this.modeView.innerHTML = '<b>Mode: </b>' + localStorage.getItem('mode');
   }
   changeBrushSize() {
     if (this.brushSize < 20) {
@@ -118,10 +126,10 @@ export class T2Canvas {
     } else {
       this.brushSize = 5;
     }
-  
+
     this.context.lineWidth = this.brushSize;
-    localStorage.setItem("width", this.brushSize.toString());
-    this.widthView.innerHTML = '<b>Width: </b> ' + parseInt(localStorage.getItem("width"));
+    localStorage.setItem('width', this.brushSize.toString());
+    this.widthView.innerHTML = '<b>Width: </b> ' + parseInt(localStorage.getItem('width'));
   }
 
   changeColor() {
@@ -133,25 +141,29 @@ export class T2Canvas {
 
     this.context.strokeStyle = this.pencilColors[this.pencilIndex];
 
-    switch(this.pencilIndex) { 
-      case 1: { 
-        localStorage.setItem("color", "blue");
-         break; 
-      } 
-      case 2: { 
-        localStorage.setItem("color", "mint");
-         break; 
-      } 
-      case 3: { 
-        localStorage.setItem("color", "yellow");
-        break; 
-     } 
-      default: { 
-        localStorage.setItem("color", "pink");
-         break; 
-      } 
-   } 
-    this.colorView.innerHTML = '<b>Color: </b> ' + localStorage.getItem("color");
+    switch (this.pencilIndex) {
+      case 1: {
+        localStorage.setItem('color', 'pink');
+        break;
+      }
+      case 2: {
+        localStorage.setItem('color', 'blue');
+        break;
+      }
+      case 3: {
+        localStorage.setItem('color', 'mint');
+        break;
+      }
+      case 4: {
+        localStorage.setItem('color', 'yellow');
+        break;
+      }
+      default: {
+        localStorage.setItem('color', 'black');
+        break;
+      }
+    }
+    this.colorView.innerHTML = '<b>Color: </b> ' + localStorage.getItem('color');
   }
 
   clearCanvas() {
