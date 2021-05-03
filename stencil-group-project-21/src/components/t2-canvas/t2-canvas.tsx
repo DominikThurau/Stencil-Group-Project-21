@@ -29,33 +29,7 @@ export class T2Canvas {
 
     this.coord = { x: 0, y: 0 };
     this.pencilColors = ['black', '#FFAEBC', '#A0E7E5', '#B4F8C8', '#FBE7C6'];
-    switch (localStorage.getItem('color')) {
-      case 'pink': {
-        this.pencilIndex = 1;
-        break;
-      }
-      case 'blue': {
-        this.pencilIndex = 2;
-        break;
-      }
-      case 'mint': {
-        this.pencilIndex = 3;
-        break;
-      }
-      case 'yellow': {
-        this.pencilIndex = 4;
-        break;
-      }
-      default: {
-        this.pencilIndex = 0;
-        break;
-      }
-    }
-    if (localStorage.getItem('mode') == 'Eraser') {
-      this.context.strokeStyle = 'white';
-    } else {
-      this.context.strokeStyle = this.pencilColors[this.pencilIndex];
-    }
+
 
     this.context.lineWidth = parseInt(localStorage.getItem('width'));
     this.brushSize = parseInt(localStorage.getItem('width'));
