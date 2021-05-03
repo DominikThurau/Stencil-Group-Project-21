@@ -28,11 +28,6 @@ linkfunctionUseless(){
   window.location.href="https://ffffidget.com/"
 }
 
-  topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-
 render() {
 return (
 <Host>
