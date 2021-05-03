@@ -63,7 +63,7 @@ export class T2Random {
   // Modus 1: Bilde ... Gruppen
   groupBuilderFunction() {
     let groups: String = '';
-    let shuffledList = this.nameList.sort(() => Math.random() - 0.5);
+    let shuffledList = this.nameList.sort(() => Math.random() - 0.5); //zufälliges vermischen der Namensliste 
     let index = 0;
     for (let i = 0; i < parseInt(this.groupCount.value); i++) {
       groups += 'Gruppe ' + (i + 1) + ':' + '\n';
@@ -75,13 +75,15 @@ export class T2Random {
       if ((shuffledList.length - index) % (parseInt(this.groupCount.value) - i) != 0) {
         groupmembers = (shuffledList.length - index) / (parseInt(this.groupCount.value) - i);
 
-        // Personenanzahl geht in den Gruppen genau auf
+      // Personenanzahl geht in den Gruppen genau auf
       } else {
         groupmembers = Math.round(shuffledList.length - index) / (parseInt(this.groupCount.value) - i);
       }
+      // Jeder Name sollte anschließend mit einem Komma ausgegeben werden, außer der letzte
       for (let x = 0; x < groupmembers; x++) {
         if (x + 1 == groupmembers) {
           groups += shuffledList[index];
+  
         } else {
           groups += shuffledList[index] + ', ';
         }
@@ -89,7 +91,7 @@ export class T2Random {
       }
       groups += '\n';
     }
-    alert(groups);
+    alert(groups); //Ausgabe der Gruppen
   }
 
   // Modus 2: Bilde Gruppen mit ... Personen
@@ -110,22 +112,21 @@ export class T2Random {
       if ((shuffledList.length - index) % (sumGroups - i) != 0) {
         peoplemembers = (shuffledList.length - index) / (sumGroups - i);
 
-        // Personenanzahl geht bei der Anzahl der eingegebenen Namen auf
+      // Personenanzahl geht bei der Anzahl der eingegebenen Namen auf
       } else {
         peoplemembers = Math.round(shuffledList.length - index) / (sumGroups - i);
       }
 
+      // Jeder Name sollte anschließend mit einem Komma ausgegeben werden, außer der letzte
+      // Zusatz weitere If Bedingung: Ausgabe der Gruppe ohne undefined
       for (let x = 0; x < peoplemembers; x++) {
         if (x + 1 == peoplemembers || index + 1 == shuffledList.length) {
+
           if (index + 1 <= shuffledList.length) {
-            console.log(index);
-            console.log(shuffledList.length);
             people += shuffledList[index];
           }
         } else {
           if (index + 1 <= shuffledList.length) {
-            console.log(index);
-            console.log(shuffledList.length);
             people += shuffledList[index] + ', ';
           }
         }
@@ -133,7 +134,7 @@ export class T2Random {
       }
       people += '\n';
     }
-    alert(people);
+    alert(people); //Ausgabe der Gruppen
   }
 
   render() {
