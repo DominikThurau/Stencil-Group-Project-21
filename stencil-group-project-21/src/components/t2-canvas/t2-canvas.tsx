@@ -13,6 +13,9 @@ export class T2Canvas {
   pencilColors;
   pencilIndex: number;
   brushSize: number;
+  modeView: HTMLParagraphElement;
+  colorView: HTMLParagraphElement;
+  widthView: HTMLParagraphElement;
 
   constructor() {
     //Fuck this
@@ -25,9 +28,33 @@ export class T2Canvas {
     this.clearCanvas = this.clearCanvas.bind(this);
 
     this.coord = { x: 0, y: 0 };
-    this.pencilColors = ['green', 'red', 'blue'];
-    this.pencilIndex = 0;
-    this.brushSize = 2;
+    this.pencilColors = ['#FFAEBC', '#A0E7E5', '#B4F8C8', '#FBE7C6'];
+    switch(localStorage.getItem("color")) { 
+      case "blue": { 
+         this.pencilIndex = 1;
+         break; 
+      } 
+      case "mint": { 
+        this.pencilIndex = 2;
+         break; 
+      } 
+      case "yellow": { 
+        this.pencilIndex = 3;
+        break; 
+     } 
+      default: { 
+        this.pencilIndex = 0;
+         break; 
+      } 
+   } 
+   if(localStorage.getItem("mode")=="Eraser"){
+    this.context.strokeStyle = 'white';
+   }else{
+    this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+   }
+    
+    this.context.lineWidth = parseInt(localStorage.getItem("width"));
+    this.brushSize = parseInt(localStorage.getItem("width"));
   }
 
   saveCanvas() {
@@ -45,23 +72,56 @@ export class T2Canvas {
       //console.log(that);
       that.context.drawImage(img, 0, 0);
     }
+    switch(localStorage.getItem("color")) { 
+      case "blue": { 
+         this.pencilIndex = 1;
+         break; 
+      } 
+      case "mint": { 
+        this.pencilIndex = 2;
+         break; 
+      } 
+      case "yellow": { 
+        this.pencilIndex = 3;
+        break; 
+     } 
+      default: { 
+        this.pencilIndex = 0;
+         break; 
+      } 
+   } 
+   if(localStorage.getItem("mode")=="Eraser"){
+    this.context.strokeStyle = 'white';
+   }else{
+    this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+   }
+    this.context.lineWidth = parseInt(localStorage.getItem("width"));
+    this.modeView.innerHTML = '<b>Mode: </b> ' + localStorage.getItem("mode");
+    this.colorView.innerHTML = '<b>Color: </b> ' + localStorage.getItem("color");
+    this.widthView.innerHTML = '<b>Width: </b> ' + parseInt(localStorage.getItem("width"));
   }
 
   setPencil() {
     this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+    localStorage.setItem("mode", "Pencil")
+    this.modeView.innerHTML = '<b>Mode: </b>' + localStorage.getItem("mode");
   }
 
   setEraser() {
     this.context.strokeStyle = 'white';
+    localStorage.setItem("mode", "Eraser")
+    this.modeView.innerHTML = '<b>Mode: </b>' + localStorage.getItem("mode");
   }
   changeBrushSize() {
-    console.log(this.brushSize);
-    if (this.brushSize < 8) {
-      this.brushSize += 2;
+    if (this.brushSize < 20) {
+      this.brushSize += 5;
     } else {
-      this.brushSize = 2;
+      this.brushSize = 5;
     }
+  
     this.context.lineWidth = this.brushSize;
+    localStorage.setItem("width", this.brushSize.toString());
+    this.widthView.innerHTML = '<b>Width: </b> ' + parseInt(localStorage.getItem("width"));
   }
 
   changeColor() {
@@ -70,7 +130,28 @@ export class T2Canvas {
     } else {
       this.pencilIndex = 0;
     }
+
     this.context.strokeStyle = this.pencilColors[this.pencilIndex];
+
+    switch(this.pencilIndex) { 
+      case 1: { 
+        localStorage.setItem("color", "blue");
+         break; 
+      } 
+      case 2: { 
+        localStorage.setItem("color", "mint");
+         break; 
+      } 
+      case 3: { 
+        localStorage.setItem("color", "yellow");
+        break; 
+     } 
+      default: { 
+        localStorage.setItem("color", "pink");
+         break; 
+      } 
+   } 
+    this.colorView.innerHTML = '<b>Color: </b> ' + localStorage.getItem("color");
   }
 
   clearCanvas() {
@@ -151,6 +232,11 @@ export class T2Canvas {
         <div id="canvas-wrapper">
           <h2>Canvas</h2>
           <i class="fas fa-camera"></i>
+          <div class="canvas-stats">
+            <p ref={el => (this.modeView = el as HTMLParagraphElement)}>Mode: </p>
+            <p ref={el => (this.colorView = el as HTMLParagraphElement)}>Color: </p>
+            <p ref={el => (this.widthView = el as HTMLParagraphElement)}>Width: </p>
+          </div>
           <canvas id="canvas" width="300" height="500" class="shadow" ref={el => (this.canvas = el as HTMLCanvasElement)}></canvas>
           <div class="button-bar">
             <div class="icon-button shadow" onClick={this.setPencil}>
