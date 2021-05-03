@@ -3,6 +3,7 @@
   font-family: hero-new, sans-serif;
   color: white;
   width: 375px;
+  z-index: -3;
 }
 
 .parentDiv {
